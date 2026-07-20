@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="theme-color" content="#00e5ff"/>
-<meta name="description" content="BeDoz Photography - Professional photography services in Egypt"/>
+<meta name="description" content="BeDoz Photography - تصوير احترافي في مصر. فرح، خطوبة، بورتريه، أحداث الشركات"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <link rel="manifest" href="manifest.json"/>
@@ -301,6 +301,58 @@ input,textarea,select{font-family:inherit;outline:none}
 .booking-form-wrap{padding:20px 16px}
 .cal-cell{padding:8px 2px;font-size:12px}
 }
+
+.fade-in-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1),transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.fade-in-up.visible{opacity:1;transform:translateY(0)}
+.pulse-badge{animation:pulseGlow 2s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,0.4)}50%{box-shadow:0 0 0 8px rgba(0,229,255,0)}}
+.pkg-card.popular .pkg-badge{animation:pulseBadge 2s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.hero-btn-glow{animation:btnGlow 3s ease-in-out infinite}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 15px rgba(0,229,255,0.2)}50%{box-shadow:0 0 30px rgba(0,229,255,0.4)}}
+.chat-toggle{animation:chatBounce 3s ease-in-out infinite}
+.chat-widget.open .chat-toggle{animation:none}
+@keyframes chatBounce{0%,80%,100%{transform:scale(1)}90%{transform:scale(1.08)}}
+.pkg-card{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.pkg-card:hover{transform:translateY(-8px);box-shadow:0 8px 40px rgba(0,229,255,0.15)}
+.portfolio-card{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.portfolio-card:hover{transform:translateY(-4px)}
+.portfolio-card:hover .card-overlay{background:linear-gradient(to top,rgba(10,14,19,0.98) 0%,rgba(0,229,255,0.15) 100%)}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);opacity:0;transition:opacity 0.3s}
+.btn:hover::after{opacity:1}
+.cal-cell.selectable:not(.past):not(.friday):not(.blocked):active{transform:scale(0.92)}
+.time-slot{transition:all 0.25s cubic-bezier(0.16,1,0.3,1)}
+.time-slot:hover:not(.booked):not(.disabled){transform:scale(1.05)}
+.time-slot.selected{transform:scale(1.05);box-shadow:0 2px 12px rgba(0,229,255,0.3)}
+.header-logo .logo-circle{transition:transform 0.3s}
+.header-logo:hover .logo-circle{transform:rotate(10deg) scale(1.05)}
+
+.fade-in-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1),transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.fade-in-up.visible{opacity:1;transform:translateY(0)}
+.pulse-badge{animation:pulseGlow 2s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,0.4)}50%{box-shadow:0 0 0 8px rgba(0,229,255,0)}}
+.pkg-card.popular .pkg-badge{animation:pulseBadge 2s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.hero-btn-glow{animation:btnGlow 3s ease-in-out infinite}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 15px rgba(0,229,255,0.2)}50%{box-shadow:0 0 30px rgba(0,229,255,0.4)}}
+.chat-toggle{animation:chatBounce 3s ease-in-out infinite}
+.chat-widget.open .chat-toggle{animation:none}
+@keyframes chatBounce{0%,80%,100%{transform:scale(1)}90%{transform:scale(1.08)}}
+.pkg-card{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.pkg-card:hover{transform:translateY(-8px);box-shadow:0 8px 40px rgba(0,229,255,0.15)}
+.portfolio-card{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.portfolio-card:hover{transform:translateY(-4px)}
+.portfolio-card:hover .card-overlay{background:linear-gradient(to top,rgba(10,14,19,0.98) 0%,rgba(0,229,255,0.15) 100%)}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);opacity:0;transition:opacity 0.3s}
+.btn:hover::after{opacity:1}
+.cal-cell.selectable:not(.past):not(.friday):not(.blocked):active{transform:scale(0.92)}
+.time-slot{transition:all 0.25s cubic-bezier(0.16,1,0.3,1)}
+.time-slot:hover:not(.booked):not(.disabled){transform:scale(1.05)}
+.time-slot.selected{transform:scale(1.05);box-shadow:0 2px 12px rgba(0,229,255,0.3)}
+.header-logo .logo-circle{transition:transform 0.3s}
+.header-logo:hover .logo-circle{transform:rotate(10deg) scale(1.05)}
 .tab-badge{background:#ff4757;color:#fff;font-size:11px;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-right:auto;margin-left:6px;font-weight:700}
 </style>
 </head>
@@ -308,54 +360,54 @@ input,textarea,select{font-family:inherit;outline:none}
 <header class="header" id="site-header">
 <div class="header-logo">
 <div class="logo-circle">B</div>
-<div class="logo-text"><strong>Abdelrahman Ali</strong> &#1575;&#1587;&#1578;&#1608;&#1583;&#1610;&#1611;&#1575;&#1569; &#1576;&#1589;&#1585;&#1610;&#1577;</div>
+<div class="logo-text"><strong>Abdelrahman Ali</strong> استوديًاء بصرية</div>
 </div>
-<button class="menu-toggle" id="menu-toggle-btn">&#9776;</button>
+<button class="menu-toggle" id="menu-toggle-btn">☰</button>
 <nav class="main-nav" id="main-nav">
-<a href="#hero" onclick="smoothScroll('hero')">&#1607;&#1605;&#1585;&#1575;&#1569;</a>
-<a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">&#1571;&#1593;&#1605;&#1575;&#1604;&#1606;&#1575;</a>
-<a href="#packages-section" onclick="smoothScroll('packages-section')">&#1575;&#1604;&#1576;&#1575;&#1602;&#1610;&#1575;&#1578;</a>
-<a href="#booking-section" onclick="smoothScroll('booking-section')" class="cta-link">&#1575;&#1581;&#1580;&#1586; &#1575;&#1604;&#1581;&#1580;&#1586;</a>
+<a href="#hero" onclick="smoothScroll('hero')">الرئيسية</a>
+<a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">أعمالنا</a>
+<a href="#packages-section" onclick="smoothScroll('packages-section')">الباقات</a>
+<a href="#booking-section" onclick="smoothScroll('booking-section')" class="cta-link">احجز الحجز</a>
 </nav>
 </header>
 <div id="public-site">
 <section class="hero" id="hero">
 <div class="hero-content">
-<div class="hero-badge">&#128247; <span>BeDoz Photography</span> &#8212; &#1571;&#1587;&#1578;&#1583;&#1610;&#1608; &#1575;&#1604;&#1601;&#1606;&#1608;&#1606;</div>
-<h1>&#1578;&#1589;&#1608;&#1610;&#1585; &#1575;&#1604;&#1604;&#1581;&#1592;&#1575;&#1578;,<br/>&#1578;&#1582;&#1604;&#1617;&#1614; &#1584;&#1576;&#1585;&#1610;&#1575;&#1578;</h1>
-<p>&#1582;&#1583;&#1605;&#1575;&#1578; &#1575;&#1604;&#1578;&#1589;&#1608;&#1610;&#1585; &#1575;&#1604;&#1605;&#1607;&#1606;&#1575;&#1569; &#1601;&#1610; &#1605;&#1589;&#1585;. &#1605;&#1606; &#1571;&#1593;&#1589;&#1575;&#1583; &#1575;&#1604;&#1601;&#1585;&#1608;&#1587; &#1604;&#1581;&#1601;&#1575;&#1591; &#1575;&#1604;&#1571;&#1581;&#1583;&#1575;&#1579;, &#1576;&#1606;&#1581;&#1608;&#1617; &#1585;&#1575;&#1574;&#1610;&#1578;&#1603; &#1576;&#1580;&#1608;&#1583; &#1587;&#1610;&#1606;&#1605;&#1575;&#1569; &#1608;&#1601;&#1606; &#1605;&#1607;&#1606;&#1575;.</p>
+<div class="hero-badge"> <span>BeDoz Photography</span> — استوديو تصوير احترافي</div>
+<h1>نحوّل لحظاتك لأبدى..<br/>صور تتكلم من غير كلام 🤍</h1>
+<p>بنصوّر أحلى لحظاتك بعين فنية وذوق راقي ✨ من فرحك لحد فعالية شركتك، كل صورة ليها قصة تتحكي.</p>
 <div class="hero-buttons">
-<button class="btn btn-primary" onclick="smoothScroll('portfolio-section')">&#1575;&#1591;&#1604;&#1593; &#1575;&#1604;&#1571;&#1593;&#1605;&#1575;&#1604;</button>
-<button class="btn btn-outline" onclick="smoothScroll('booking-section')">&#1575;&#1581;&#1580;&#1586; &#1580;&#1604;&#1587;&#1577;</button>
+<button class="btn btn-primary btn-glow" onclick="smoothScroll('portfolio-section')">شوف شغلنا 📸</button>
+<button class="btn btn-outline" onclick="smoothScroll('booking-section')">احجز سيشنك دلوقتي 🎯</button>
 </div>
 </div>
 </section>
 <section class="section" id="portfolio-section">
 <div class="section-header">
-<h2>أعمالنا <span>الفنية</span></h2>
-<p>نبض من أعمالنا الإبداعي في مجال أسلوب التصوير</p>
+<h2>شُغلنا بيحكي قصص 📸</h2>
+<p>من أجمل اللحظات اللي صوّرناها.. كل صورة فيها روح</p>
 </div>
 <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
 <section class="section" id="packages-section">
 <div class="section-header">
-<h2>باقيات <span>التصوير</span></h2>
-<p>اختار الباقة المناسبة لللحظاط الخاصة بك</p>
+<h2>اختار الباقة اللي على مقاس فرحتك ✨</h2>
+<p>كل باقة مصمّمة عشان تطلّع أحلى ما فيك</p>
 </div>
 <div class="packages-grid" id="packages-grid"></div>
 </section>
 <section class="section" id="booking-section">
 <div class="section-header">
-<h2>حجز <span>جلستك</span></h2>
-<p>اختر التاريخ والوقت والباقة لتبدأ</p>
+<h2>احجز موعدك وخلّينا نبدأ ✨</h2>
+<p>اختار التاريخ والوقت والباقة.. وخلاص كده!</p>
 </div>
 <div class="booking-section">
 <div>
 <div class="booking-calendar-wrap">
 <div class="cal-header">
-<button class="cal-nav" onclick="calPrev('booking')">&#8249;</button>
+<button class="cal-nav" onclick="calPrev('booking')">‹</button>
 <span class="cal-title" id="booking-cal-title"></span>
-<button class="cal-nav" onclick="calNext('booking')">&#8250;</button>
+<button class="cal-nav" onclick="calNext('booking')">›</button>
 </div>
 <div class="cal-grid" id="booking-cal-grid"></div>
 <div class="cal-legend">
@@ -370,10 +422,10 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 </div>
 <div class="booking-form-wrap">
-<h3>تفاصيل الحجز</h3>
+<h3> بيانات الحجز 📋</h3>
 <div class="booking-summary" id="booking-summary">
 <h4>ملخص الحجز</h4>
-<div class="summary-empty">اختر تاريخ ووقت عشان ملخص الحجز</div>
+<div class="summary-empty">اختار التاريخ والوقت عشان تشوف ملخص الحجز 👇</div>
 </div>
 <form id="booking-form" onsubmit="submitBooking(event)">
 <div class="form-row">
@@ -397,9 +449,9 @@ input,textarea,select{font-family:inherit;outline:none}
 <div class="form-group" id="fg-package">
 <label>الباقة</label>
 <select id="bk-package" required>
-<option value="">اختر باقة</option>
+<option value="">اختار باقة</option>
 </select>
-<div class="form-error">من فضلك اختر باقة</div>
+<div class="form-error">من فضلك اختار باقة</div>
 </div>
 </div>
 <div class="form-group">
@@ -418,13 +470,13 @@ input,textarea,select{font-family:inherit;outline:none}
 <div class="logo-circle">B</div>
 <strong>BeDoz Photography</strong>
 </div>
-<p>خدمات التصوير المهناة من عبد الرحمن علي. تصوير لحظاط الحياة الأجمل بفن مهنا وجود سينمائي.</p>
+<p>بنحوّل أحلى لحظاتك لذكريات خالدة بعين فنية وذوق راقي. كل صورة ليها قصة.. واحنا عارفين نحكاها 🤍</p>
 </div>
 <div class="footer-links">
 <h4>روابط سريعة</h4>
-<a href="#hero" onclick="smoothScroll('hero')">همراء</a>
+<a href="#hero" onclick="smoothScroll('hero')">الرئيسية</a>
 <a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">الأعمال</a>
-<a href="#packages-section" onclick="smoothScroll('packages-section')">الباقيات</a>
+<a href="#packages-section" onclick="smoothScroll('packages-section')">الباقات</a>
 <a href="#booking-section" onclick="smoothScroll('booking-section')">احجز الآن</a>
 </div>
 <div class="footer-links">
@@ -436,24 +488,24 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 </div>
 <div class="footer-bottom">
-<span>&#169; 2026 BeDoz Photography. محفوظات مغروضة.</span>
-<span>تصميم بشغف من Abdelrahman Ali</span>
+<span>© 2026 BeDoz Photography. محفوظات مغروضة.</span>
+<span>صنع بشغف ❤️ من Abdelrahman Ali</span>
 </div>
 </footer>
 </div>
 <div class="chat-widget" id="chat-widget">
 <button class="chat-toggle" id="chat-toggle-btn">
-<span class="chat-icon">&#128172;</span>
-<span class="chat-close">&#10005;</span>
+<span class="chat-icon"></span>
+<span class="chat-close">✕</span>
 <div class="chat-badge" id="chat-badge" style="display:none">1</div>
 </button>
 <div class="chat-window" id="chat-window">
 <div class="chat-header">
 <div class="chat-header-info">
 <div class="chat-header-avatar">B</div>
-<div><div class="name">مساعد BeDoz</div><div class="status">&#9679; متصل <span style="color:#00e676">&#9679;</span></div></div>
+<div><div class="name">مساعد BeDoz</div><div class="status">● متصل <span style="color:#00e676">●</span></div></div>
 </div>
-<button class="chat-header-close" onclick="toggleChat()">&#10005;</button>
+<button class="chat-header-close" onclick="toggleChat()">✕</button>
 </div>
 <div class="chat-messages" id="chat-messages"></div>
 <div class="chat-typing" id="chat-typing">
@@ -463,21 +515,21 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 <div class="chat-input-area">
 <input type="text" id="chat-input" placeholder="اكتب رسالة..."/>
-<button id="chat-send-btn">&#10148;</button>
+<button id="chat-send-btn">➤</button>
 </div>
 </div>
 </div>
 <div class="toast-container" id="toast-container"></div>
 <div class="modal-overlay" id="booking-modal">
 <div class="modal-content">
-<div class="modal-icon">&#9989;</div>
-<h3>تم تأكيد الحجز، يا ربًى!</h3>
-<p>تم إنشاء حجزك بنجاح</p>
+<div class="modal-icon">✅</div>
+<h3>تم تأكيد حجزك بنجاح! 🎉</h3>
+<p>mbHnna hanetak.. هنتواصل معاك على واتساب عشان نتفاهم!</p>
 <div class="modal-id" id="modal-booking-id"></div>
 <div class="modal-details" id="modal-details"></div>
 <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;justify-content:center">
 <button class="btn btn-primary" onclick="closeBookingModal()">تم</button>
-<button class="btn" id="modal-whatsapp-btn" onclick="sendBookingWhatsApp()" style="background:#25d366;color:#fff;display:none">&#128172; إرسال واتساب</button>
+<button class="btn" id="modal-whatsapp-btn" onclick="sendBookingWhatsApp()" style="background:#25d366;color:#fff;display:none"> إرسال واتساب</button>
 </div>
 </div>
 </div>
@@ -503,38 +555,38 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 <nav class="admin-sidebar-nav">
 <button class="admin-tab active" data-tab="packages" onclick="switchAdminTab('packages')">
-<span class="tab-icon">&#128230;</span>الباقيات
+<span class="tab-icon"></span>الباقات
 </button>
 <button class="admin-tab" data-tab="bookings" onclick="switchAdminTab('bookings')">
-<span class="tab-icon">&#128203;</span>الحجزات
+<span class="tab-icon"></span>الحجزات
 </button>
 <button class="admin-tab" data-tab="blocked" onclick="switchAdminTab('blocked')">
-<span class="tab-icon">&#128197;</span>التواريخ المحظورة
+<span class="tab-icon"></span>التواريخ المحظورة
 <span class="tab-badge" id="bookings-badge" style="display:none">0</span>
 </button>
 <button class="admin-tab" data-tab="settings" onclick="switchAdminTab('settings')">
-<span class="tab-icon">&#9881;</span>الإعدادات
+<span class="tab-icon">⚙</span>الإعدادات
 </button>
 </nav>
 <div class="admin-sidebar-footer">
 <div class="admin-backup-btns">
-<button class="admin-backup-btn" onclick="exportData()">&#128228; تصدير البيانات</button>
-<button class="admin-backup-btn" onclick="importDataClick()">&#128229; استيراد بيانات</button>
+<button class="admin-backup-btn" onclick="exportData()"> تصدير البيانات</button>
+<button class="admin-backup-btn" onclick="importDataClick()"> استيراد بيانات</button>
 <input type="file" id="import-file-input" accept=".json" style="display:none" onchange="importData(event)"/>
 </div>
 <button class="admin-logout" onclick="adminLogout()">
-<span class="tab-icon">&#128682;</span> تسجيل الخروج
+<span class="tab-icon"></span> تسجيل الخروج
 </button>
 </div>
 </aside>
 <main class="admin-main">
 <div class="admin-topbar">
-<button class="admin-topbar-btn" onclick="toggleAdminSidebar()">&#9776;</button>
-<h2 id="admin-topbar-title">الباقيات</h2>
-<button class="admin-topbar-btn" onclick="adminLogout()">&#128682;</button>
+<button class="admin-topbar-btn" onclick="toggleAdminSidebar()">☰</button>
+<h2 id="admin-topbar-title">الباقات</h2>
+<button class="admin-topbar-btn" onclick="adminLogout()"></button>
 </div>
 <div class="admin-content active" id="admin-packages">
-<h2 class="admin-content-title">إدارة الباقيات</h2>
+<h2 class="admin-content-title">إدارة الباقات</h2>
 <div id="admin-packages-list"></div>
 </div>
 <div class="admin-content" id="admin-bookings">
@@ -545,9 +597,9 @@ input,textarea,select{font-family:inherit;outline:none}
 <h2 class="admin-content-title">التواريخ المحظورة</h2>
 <div class="booking-calendar-wrap">
 <div class="cal-header">
-<button class="cal-nav" onclick="calPrev('admin')">&#8249;</button>
+<button class="cal-nav" onclick="calPrev('admin')">‹</button>
 <span class="cal-title" id="admin-cal-title"></span>
-<button class="cal-nav" onclick="calNext('admin')">&#8250;</button>
+<button class="cal-nav" onclick="calNext('admin')">›</button>
 </div>
 <div class="cal-grid" id="admin-cal-grid"></div>
 </div>
@@ -563,18 +615,18 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 <script>
 var DEFAULT_PACKAGES=[
-{id:1,title:'عرضي / المفروشات',price:1500,duration:'ساعة',photoCount:'15 صورة',features:['تصوير برا','15 صورة معدلة','معرض إلكتروني','مصون ألوان بسيط'],active:true,popular:false},
-{id:2,title:'بورتريه الستيو',price:2500,duration:'ساعة ونص',photoCount:'30 صورة',features:['ستيو مهنء','30 صورة معدلة بعد التعديل','عمل محطوف الاصطورة','إضاءة التعديل مشمولة'],active:true,popular:true},
-{id:3,title:'تصوير الفرح',price:8000,duration:'يوم كامل',photoCount:'200+ صورة',features:['تصوير معدد','مصور ثاني','200+ صورة معدلة','جلسة الخطوبة','معرض إلكتروني'],active:true,popular:false},
-{id:4,title:'أفضار / شركات',price:4000,duration:'4 ساعات',photoCount:'80 صورة',features:['تصوير فعالي','80 صورة معدلة','صور جمعية','صور ذاتية','تسليم فوري تصوير'],active:true,popular:false}
+{id:1,title:'كاجوال / تصوير في البر',price:1500,duration:'ساعة',photoCount:'15 صورة',features:['تصوير في مكان مفتوح','15 صورة معدلة باحتراف','معرض إلكتروني أونلاين','تصحيح ألوان أساسي'],active:true,popular:false},
+{id:2,title:'بورتريه ستوديو',price:2500,duration:'ساعة ونص',photoCount:'30 صورة',features:['ستوديو احترافي مجهّز','30 صورة معدلة بعد التعديل','تنوّع في البدل والإطلالات','إضاءة سينمائية احترافية','ريتوش وتدقيق مشمول'],active:true,popular:true},
+{id:3,title:'تصوير فرح كامل',price:8000,duration:'يوم كامل',photoCount:'200+ صورة',coverage:'تغطية كاملة طول اليوم',features:['تغطية كاملة من الصبح للبيت','مصور تاني معاك','200+ صورة معدلة باحتراف','جلسة خطوبة مجاناً','معرض إلكتروني أونلاين'],active:true,popular:false},
+{id:4,title:'مناسبات وشركات',price:4000,duration:'4 ساعات',photoCount:'80 صورة',features:['توثيق الفعالية بالكامل','80 صورة معدلة باحتراف','صور جماعية للفريق','لقطات حلوة عفوية','تسليم سريع خلال 48 ساعة'],active:true,popular:false}
 ];
 var PORTFOLIO_ITEMS=[
-{title:'الفرح',desc:'قصل قصص حباب جميلاً',emoji:'\uD83D\uDC8D',gradient:'linear-gradient(135deg,#ff6b9d,#c44dff)'},
-{title:'البورتريه',desc:'بورتريهات ستيو مهنءة',emoji:'\uD83D\uDCF8',gradient:'linear-gradient(135deg,#00e5ff,#0088ff)'},
-{title:'الأفضار',desc:'تصوير أفضار ذاتي',emoji:'\uD83C\uDF89',gradient:'linear-gradient(135deg,#ff9800,#f44336)'},
-{title:'الطبيعة',desc:'تصوير مفروشات وطبيعية',emoji:'\uD83C\uDF3F',gradient:'linear-gradient(135deg,#00e676,#00bfa5)'},
-{title:'المنتجات',desc:'تصوير تجاري مهنة',emoji:'\uD83D\uDCE6',gradient:'linear-gradient(135deg,#ffc107,#ff9800)'},
-{title:'الشراع',desc:'تصوير شعاب مديني',emoji:'\uD83C\uDFE1\uFE0F',gradient:'linear-gradient(135deg,#7c4dff,#448aff)'}
+{title:'الفرح',desc:'قصص حُب خالدة',emoji:'\uD83D\uDC8D',gradient:'linear-gradient(135deg,#ff6b9d,#c44dff)'},
+{title:'البورتريه',desc:'بورتريهات بتلمع بالاحتراف',emoji:'\uD83D\uDCF8',gradient:'linear-gradient(135deg,#00e5ff,#0088ff)'},
+{title:'المناسبات',desc:'لحظات فرحة لا تُنسى',emoji:'\uD83C\uDF89',gradient:'linear-gradient(135deg,#ff9800,#f44336)'},
+{title:'الطبيعة',desc:'جمال الطبيعة في عدسة',emoji:'\uD83C\uDF3F',gradient:'linear-gradient(135deg,#00e676,#00bfa5)'},
+{title:'المنتجات',desc:'منتجاتك تستاهل أحلى صورة',emoji:'\uD83D\uDCE6',gradient:'linear-gradient(135deg,#ffc107,#ff9800)'},
+{title:'الشوارع',desc:'شوارع المدينة بطابع فني',emoji:'\uD83C\uDFE1\uFE0F',gradient:'linear-gradient(135deg,#7c4dff,#448aff)'}
 ];
 var TIME_SLOTS=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
 var MONTH_NAMES=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
@@ -595,16 +647,16 @@ function smoothScroll(id){var el=document.getElementById(id);if(el)el.scrollInto
 function toggleMobileMenu(){state.mobileMenuOpen=!state.mobileMenuOpen;var nav=document.getElementById('main-nav');if(state.mobileMenuOpen){nav.classList.add('open')}else{nav.classList.remove('open')}}
 function toggleAdminSidebar(){document.getElementById('admin-sidebar').classList.toggle('open')}
 function renderPortfolio(){var grid=document.getElementById('portfolio-grid');var html='';PORTFOLIO_ITEMS.forEach(function(item){html+='<div class="portfolio-card"><div class="card-bg" style="background:'+item.gradient+'">'+item.emoji+'</div><div class="card-overlay"><h3>'+item.title+'</h3><p>'+item.desc+'</p></div></div>'});grid.innerHTML=html}
-function renderPublicPackages(){var grid=document.getElementById('packages-grid');var activePkgs=state.packages.filter(function(p){return p.active});if(!activePkgs.length){grid.innerHTML='<div class="no-data"><div class="no-data-icon">&#128230;</div>لا توجد باقيات</div>';return}
-var sel=document.getElementById('bk-package');var selVal=sel.value;sel.innerHTML='<option value="">اختر باقة</option>';var html='';
+function renderPublicPackages(){var grid=document.getElementById('packages-grid');var activePkgs=state.packages.filter(function(p){return p.active});if(!activePkgs.length){grid.innerHTML='<div class="no-data"><div class="no-data-icon"></div>لا توجد باقات</div>';return}
+var sel=document.getElementById('bk-package');var selVal=sel.value;sel.innerHTML='<option value=""> اختار باقة</option>';var html='';
 activePkgs.forEach(function(pkg){sel.innerHTML+='<option value="'+pkg.id+'">'+pkg.title+' - '+pkg.price+' EGP</option>';
 html+='<div class="pkg-card'+(pkg.popular?' popular':'')+'">';
-if(pkg.popular)html+='<div class="pkg-badge">&#11088; Popular</div>';
+if(pkg.popular)html+="<div class='pkg-badge pulse-badge'>⭐ الأكثر طلباً</div>";
 html+='<h3>'+pkg.title+'</h3>';
 html+='<div class="pkg-price">'+pkg.price+' EGP <span>/ '+pkg.duration+'</span></div>';
-html+='<div class="pkg-duration">'+pkg.duration+' &#8226; '+pkg.photoCount+'</div>';
+html+='<div class="pkg-duration">'+pkg.duration+' • '+pkg.photoCount+'</div>';
 html+='<ul class="pkg-features">';pkg.features.forEach(function(f){html+='<li>'+f+'</li>'});html+='</ul>';
-html+='<button class="btn btn-primary" onclick="smoothScroll(\'booking-section\')">حجز هذه الباقة</button>';
+html+='<button class="btn btn-primary" onclick="smoothScroll(\'booking-section\')">احجز دلوقتي 🎯</button>';
 html+='</div>'});grid.innerHTML=html;if(selVal)sel.value=selVal}
 function renderBookingCalendar(){var container=document.getElementById('booking-cal-grid');var titleEl=document.getElementById('booking-cal-title');var year=state.bCalYear,month=state.bCalMonth;titleEl.textContent=MONTH_NAMES[month]+' '+year;var firstDay=new Date(year,month,1).getDay();var daysInMonth=new Date(year,month+1,0).getDate();var today=new Date();today.setHours(0,0,0,0);var html='';DAY_NAMES.forEach(function(d){html+='<div class="cal-day-name">'+d+'</div>'});for(var i=0;i<firstDay;i++)html+='<div class="cal-cell empty"></div>';for(var day=1;day<=daysInMonth;day++){var dt=new Date(year,month,day);var ds=formatDateStr(dt);var isPast=dt<today;var isFri=dt.getDay()===5;var isBlocked=state.blockedDates.indexOf(ds)!==-1;var isSel=state.selectedDate===ds;var isToday=dt.getTime()===today.getTime();var cls='cal-cell';if(isPast)cls+=' past';if(isFri)cls+=' friday';if(isBlocked)cls+=' blocked';if(isToday)cls+=' today';if(isSel)cls+=' selected';if(!isPast&&!isFri&&!isBlocked)cls+=' selectable';var oc='';if(!isPast&&!isFri&&!isBlocked)oc=" onclick=\"selectBookingDate('"+ds+"')\"";html+='<div class="'+cls+'"'+oc+'>'+day+'</div>'}container.innerHTML=html}
 function selectBookingDate(ds){state.selectedDate=ds;state.selectedTime=null;renderBookingCalendar();renderTimeSlots();updateBookingSummary();checkFormValid()}
@@ -615,26 +667,26 @@ function updateBookingSummary(){var sum=document.getElementById('booking-summary
 var h='<h4>\u0645\u0644\u062e\u0635 \u0627\u0644\u062d\u062c\u0632</h4>';h+='<div class="summary-row"><span>\u0627\u0644\u0628\u0627\u0642\u0629</span><span>'+(pkgName||'\u063a\u064a\u0631 \u0645\u062d\u062f\u062f')+'</span></div>';h+='<div class="summary-row"><span>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</span><span>'+(state.selectedDate?formatDateDisplay(state.selectedDate):'\u063a\u064a\u0631 \u0645\u062d\u062f\u062f')+'</span></div>';h+='<div class="summary-row"><span>\u0627\u0644\u0648\u0642\u062a</span><span>'+(state.selectedTime||'\u063a\u064a\u0631 \u0645\u062d\u062f\u062f')+'</span></div>';if(pkgPrice)h+='<div class="summary-row"><span>\u0627\u0644\u0633\u0639\u0631</span><span style="color:#00e5ff;font-size:18px">'+pkgPrice+'</span></div>';sum.innerHTML=h}
 function checkFormValid(){var name=document.getElementById('bk-name').value.trim();var email=document.getElementById('bk-email').value.trim();var phone=document.getElementById('bk-phone').value.trim();var pkg=document.getElementById('bk-package').value;var btn=document.getElementById('bk-submit');var valid=name.length>=2&&email&&phone&&pkg&&state.selectedDate&&state.selectedTime;btn.disabled=!valid}
 function validateField(id,condition){var fg=document.getElementById(id);if(!condition){fg.classList.add('has-error');return false}fg.classList.remove('has-error');return true}
-function submitBooking(e){e.preventDefault();var name=document.getElementById('bk-name').value.trim();var email=document.getElementById('bk-email').value.trim();var phone=document.getElementById('bk-phone').value.trim();var pkgId=parseInt(document.getElementById('bk-package').value);var notes=document.getElementById('bk-notes').value.trim();var v1=validateField('fg-name',name.length>=2);var v2=validateField('fg-email',email.indexOf('@')>0);var v3=validateField('fg-phone',phone.length>=8);var v4=validateField('fg-package',!!pkgId);if(!v1||!v2||!v3||!v4){showToast('من فضلك ملء الحقل المطلوبة بصورة صحيحة','error');return}
-if(!state.selectedDate||!state.selectedTime){showToast('من فضلك اختر تاريخ ووقت','error');return}
-if(isTimeBooked(state.selectedDate,state.selectedTime)){showToast('الوقت ده محجوز فيه. من فضلك اختر وقت آخر.','error');return}
+function submitBooking(e){e.preventDefault();var name=document.getElementById('bk-name').value.trim();var email=document.getElementById('bk-email').value.trim();var phone=document.getElementById('bk-phone').value.trim();var pkgId=parseInt(document.getElementById('bk-package').value);var notes=document.getElementById('bk-notes').value.trim();var v1=validateField('fg-name',name.length>=2);var v2=validateField('fg-email',email.indexOf('@')>0);var v3=validateField('fg-phone',phone.length>=8);var v4=validateField('fg-package',!!pkgId);if(!v1||!v2||!v3||!v4){showToast('مليت بعض الحاجات غلط.. ابص تاني كده','error');return}
+if(!state.selectedDate||!state.selectedTime){showToast('اختار التاريخ والوقت الأول عشان تكمل','error');return}
+if(isTimeBooked(state.selectedDate,state.selectedTime)){showToast('الوقت ده محجوز بالفعل.. اختار وقت تاني 🙏','error');return}
 var bookingId=generateBookingId();var booking={id:bookingId,name:name,email:email,phone:phone,packageId:pkgId,date:state.selectedDate,time:state.selectedTime,notes:notes,status:'confirmed',createdAt:new Date().toISOString()};state.bookings.push(booking);saveBookings();updateBookingBadge();showBookingModal(booking);document.getElementById('booking-form').reset();state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary();document.getElementById('bk-submit').disabled=true}
 function showBookingModal(booking){var pkg=state.packages.find(function(p){return p.id===booking.packageId});document.getElementById('modal-booking-id').textContent=booking.id;var h='';h+='<div class="detail-row"><span>\u0627\u0644\u0627\u0633\u0645</span><span>'+escapeHtml(booking.name)+'</span></div>';h+='<div class="detail-row"><span>\u0627\u0644\u0628\u0631\u064a\u062f</span><span>'+escapeHtml(booking.email)+'</span></div>';h+='<div class="detail-row"><span>\u0627\u0644\u062a\u0644\u064a\u0641\u0648\u0646</span><span>'+escapeHtml(booking.phone)+'</span></div>';h+='<div class="detail-row"><span>\u0627\u0644\u0628\u0627\u0642\u0629</span><span>'+(pkg?pkg.title:'N/A')+'</span></div>';h+='<div class="detail-row"><span>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</span><span>'+formatDateDisplay(booking.date)+'</span></div>';h+='<div class="detail-row"><span>\u0627\u0644\u0648\u0642\u062a</span><span>'+booking.time+'</span></div>';if(booking.notes)h+='<div class="detail-row"><span>\u0645\u0644\u0627\u062d\u0638\u0627\u062a</span><span>'+escapeHtml(booking.notes)+'</span></div>';document.getElementById('modal-details').innerHTML=h;lastBookingData=booking;var wBtn=document.getElementById('modal-whatsapp-btn');if(state.whatsappNumber&&wBtn)wBtn.style.display='inline-block';document.getElementById('booking-modal').classList.add('active')}
 function closeBookingModal(){document.getElementById('booking-modal').classList.remove('active')}
 var lastBookingData=null;
-function sendBookingWhatsApp(){if(!lastBookingData)return;var bk=lastBookingData;var pkg=state.packages.find(function(p){return p.id===bk.packageId});var num=state.whatsappNumber;if(!num){showToast('لم يتم تعيين رقم واتساب من لوحة التحكم','error');return}var msg='مرحبا\n\n';msg+='الاسم: '+bk.name+'\n';msg+='التليفون: '+bk.phone+'\n';msg+='البريد: '+bk.email+'\n';msg+='الباقة: '+(pkg?pkg.title:'N/A')+'\n';msg+='التاريخ: '+formatDateDisplay(bk.date)+'\n';msg+='الوقت: '+bk.time+'\n';if(bk.notes)msg+='ملاحظات: '+bk.notes+'\n';msg+='\nالرقم: '+bk.id;var cleanNum=num.replace(/[^0-9]/g,'');window.open('https://wa.me/'+cleanNum+'?text='+encodeURIComponent(msg),'_blank')}
+function sendBookingWhatsApp(){if(!lastBookingData)return;var bk=lastBookingData;var pkg=state.packages.find(function(p){return p.id===bk.packageId});var num=state.whatsappNumber;if(!num){showToast('مفيش رقم واتساب متحدد في الإعدادات 📱','error');return}var msg='مرحبا\n\n';msg+='الاسم: '+bk.name+'\n';msg+='التليفون: '+bk.phone+'\n';msg+='البريد: '+bk.email+'\n';msg+='الباقة: '+(pkg?pkg.title:'N/A')+'\n';msg+='التاريخ: '+formatDateDisplay(bk.date)+'\n';msg+='الوقت: '+bk.time+'\n';if(bk.notes)msg+='ملاحظات: '+bk.notes+'\n';msg+='\nالرقم: '+bk.id;var cleanNum=num.replace(/[^0-9]/g,'');window.open('https://wa.me/'+cleanNum+'?text='+encodeURIComponent(msg),'_blank')}
 function updateBookingBadge(){var unread=state.bookings.length-state.lastSeenBookingCount;var badge=document.getElementById('bookings-badge');if(badge){if(unread>0){badge.textContent=unread;badge.style.display='flex'}else{badge.style.display='none'}}}
-function adminLogin(){var pw=document.getElementById('admin-password').value;var errEl=document.getElementById('admin-login-error');if(pw==='bedoz2024'){state.adminLoggedIn=true;try{localStorage.setItem('bdz_admin','true')}catch(e){}document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';switchAdminTab('packages');showToast('أهلا بك بعودك عبد الرحمن، يا عبد!','success');errEl.classList.remove('show')}else{errEl.classList.add('show');document.getElementById('admin-password').value=''}}
-function adminLogout(){state.adminLoggedIn=false;try{localStorage.setItem('bdz_admin','false')}catch(e){}document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none';document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-password').value='';document.getElementById('admin-login-error').classList.remove('show');showToast('تم تسجيل الخروج بنجاح','info');handleRoute()}
-function switchAdminTab(tab){document.querySelectorAll('.admin-tab').forEach(function(el){el.classList.remove('active')});var btn=document.querySelector('.admin-tab[data-tab="'+tab+'"]');if(btn)btn.classList.add('active');document.querySelectorAll('.admin-content').forEach(function(el){el.classList.remove('active')});var content=document.getElementById('admin-'+tab);if(content)content.classList.add('active');var titles={packages:'الباقيات',bookings:'الحجزات',blocked:'التواريخ المحظورة',settings:'الإعدادات'};var titleEl=document.getElementById('admin-topbar-title');if(titleEl)titleEl.textContent=titles[tab]||'التحكم';if(tab==='packages')renderAdminPackages();if(tab==='bookings')renderAdminBookings();if(tab==='blocked')renderAdminBlockedDates();if(tab==='settings')renderAdminSettings();if(tab==='bookings'){state.lastSeenBookingCount=state.bookings.length;saveLastSeen();updateBookingBadge()}}
+function adminLogin(){var pw=document.getElementById('admin-password').value;var errEl=document.getElementById('admin-login-error');if(pw==='bedoz2024'){state.adminLoggedIn=true;try{localStorage.setItem('bdz_admin','true')}catch(e){}document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';switchAdminTab('packages');showToast('أهلا بعودك يا عبد الرحمن! 🤍','success');errEl.classList.remove('show')}else{errEl.classList.add('show');document.getElementById('admin-password').value=''}}
+function adminLogout(){state.adminLoggedIn=false;try{localStorage.setItem('bdz_admin','false')}catch(e){}document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none';document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-password').value='';document.getElementById('admin-login-error').classList.remove('show');showToast('تم تسجيل الخروج.. نشوفك تاني قريباً! 👋','info');handleRoute()}
+function switchAdminTab(tab){document.querySelectorAll('.admin-tab').forEach(function(el){el.classList.remove('active')});var btn=document.querySelector('.admin-tab[data-tab="'+tab+'"]');if(btn)btn.classList.add('active');document.querySelectorAll('.admin-content').forEach(function(el){el.classList.remove('active')});var content=document.getElementById('admin-'+tab);if(content)content.classList.add('active');var titles={packages:'الباقات',bookings:'الحجزات',blocked:'التواريخ المحظورة',settings:'الإعدادات'};var titleEl=document.getElementById('admin-topbar-title');if(titleEl)titleEl.textContent=titles[tab]||'التحكم';if(tab==='packages')renderAdminPackages();if(tab==='bookings')renderAdminBookings();if(tab==='blocked')renderAdminBlockedDates();if(tab==='settings')renderAdminSettings();if(tab==='bookings'){state.lastSeenBookingCount=state.bookings.length;saveLastSeen();updateBookingBadge()}}
 function renderAdminPackages(){var list=document.getElementById('admin-packages-list');var html='';state.packages.forEach(function(pkg){html+='<div class="admin-pkg-card'+(pkg.active?'':' inactive')+'" id="apkg-'+pkg.id+'">';html+='<div class="admin-pkg-header"><h3>'+escapeHtml(pkg.title)+'</h3>';html+='<button class="admin-pkg-toggle'+(pkg.active?' on':'')+'" onclick="toggleAdminPackageActive('+pkg.id+')" title="\u062a\u063a\u064a\u064a\u0631 \u0645\u0641\u0639\u0644/\u063a\u064a\u0631 \u0645\u0641\u0639\u0644"></button></div>';html+='<div class="admin-pkg-fields">';html+='<div><label>\u0627\u0644\u0639\u0646\u0648\u0627\u0646</label><input type="text" id="apkg-title-'+pkg.id+'" value="'+escapeHtml(pkg.title)+'"/></div>';html+='<div><label>\u0627\u0644\u0633\u0639\u0631 (\u062c.\u0645)</label><input type="number" id="apkg-price-'+pkg.id+'" value="'+pkg.price+'"/></div>';html+='<div><label>\u0627\u0644\u0645\u062f\u0629</label><input type="text" id="apkg-dur-'+pkg.id+'" value="'+escapeHtml(pkg.duration)+'"/></div>';html+='<div><label>\u0639\u062f\u062f \u0627\u0644\u0635\u0648\u0631</label><input type="text" id="apkg-photos-'+pkg.id+'" value="'+escapeHtml(pkg.photoCount)+'"/></div>';html+='<div class="full"><label>\u0627\u0644\u0645\u063a\u0631\u0636\u0627\u062a (\u0645\u063a\u0631\u0636\u0629 \u0648\u0627\u062d\u062f\u0629 \u0644\u0643\u0644 \u0635\u0641)</label><textarea id="apkg-feat-'+pkg.id+'" rows="4">'+pkg.features.join('\n')+'</textarea></div>';html+='</div>';html+='<div class="admin-pkg-actions">';html+='<button class="btn btn-sm btn-outline" onclick="renderAdminPackages()">إلغاء</button>';html+='<button class="btn btn-sm btn-primary" onclick="saveAdminPackage('+pkg.id+')">حفظ التغييرات</button>';html+='</div></div>'});list.innerHTML=html}
 function saveAdminPackage(id){var pkg=state.packages.find(function(p){return p.id===id});if(!pkg)return;pkg.title=document.getElementById('apkg-title-'+id).value.trim()||pkg.title;pkg.price=parseInt(document.getElementById('apkg-price-'+id).value)||pkg.price;pkg.duration=document.getElementById('apkg-dur-'+id).value.trim()||pkg.duration;pkg.photoCount=document.getElementById('apkg-photos-'+id).value.trim()||pkg.photoCount;var featText=document.getElementById('apkg-feat-'+id).value.trim();pkg.features=featText?featText.split('\n').map(function(f){return f.trim()}).filter(function(f){return f.length>0}):pkg.features;savePackages();renderPublicPackages();renderAdminPackages();showToast('تم حفظ الباقة \"'+pkg.title+'\" بنجاح','success')}
 function toggleAdminPackageActive(id){var pkg=state.packages.find(function(p){return p.id===id});if(!pkg)return;pkg.active=!pkg.active;savePackages();renderPublicPackages();renderAdminPackages();showToast(pkg.title+' الآن '+(pkg.active?'مفعلة':'غير مفعلة'),pkg.active?'success':'info')}
-function renderAdminBookings(){var list=document.getElementById('admin-bookings-list');if(!state.bookings.length){list.innerHTML='<div class="no-data"><div class="no-data-icon">&#128203;</div>لم يتم بعد حجزات</div>';return}
-var html='<div style="overflow-x:auto"><table class="admin-bookings-table">';html+='<thead><tr><th>#</th><th>\u0627\u0644\u0627\u0633\u0645</th><th>\u0627\u0644\u0628\u0631\u064a\u062f</th><th>\u0627\u0644\u062a\u0644\u064a\u0641\u0648\u0646</th><th>\u0627\u0644\u0628\u0627\u0642\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th><th>\u0627\u0644\u0648\u0642\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u0623\u0639\u0645\u0627\u0644</th></tr></thead><tbody>';var sorted=state.bookings.slice().sort(function(a,b){return new Date(b.createdAt)-new Date(a.createdAt)});sorted.forEach(function(bk,i){var pkg=state.packages.find(function(p){return p.id===bk.packageId});var statusCls=bk.status==='confirmed'?'confirmed':'cancelled';html+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(bk.name)+'</td><td>'+escapeHtml(bk.email)+'</td><td>'+escapeHtml(bk.phone)+'</td><td>'+(pkg?pkg.title:'N/A')+'</td><td>'+formatDateDisplay(bk.date)+'</td><td>'+bk.time+'</td><td><span class="status-badge '+statusCls+'">'+bk.status+'</span></td><td>';if(bk.status==='confirmed')html+='<button class="btn btn-sm btn-danger" onclick="cancelAdminBooking(\''+bk.id+'\')">\u0625\u0644\u063a\u0627\u0621</button>';else html+='<span style="color:#5a6577;font-size:12px">&#8212;</span>';html+='</td></tr>'});html+='</tbody></table></div>';list.innerHTML=html}
-function cancelAdminBooking(id){var bk=state.bookings.find(function(b){return b.id===id});if(!bk)return;bk.status='cancelled';saveBookings();renderAdminBookings();showToast('تم إلغاء الحجز '+id,'info')}
+function renderAdminBookings(){var list=document.getElementById('admin-bookings-list');if(!state.bookings.length){list.innerHTML='<div class="no-data"><div class="no-data-icon"></div>لم يتم بعد حجزات</div>';return}
+var html='<div style="overflow-x:auto"><table class="admin-bookings-table">';html+='<thead><tr><th>#</th><th>\u0627\u0644\u0627\u0633\u0645</th><th>\u0627\u0644\u0628\u0631\u064a\u062f</th><th>\u0627\u0644\u062a\u0644\u064a\u0641\u0648\u0646</th><th>\u0627\u0644\u0628\u0627\u0642\u0629</th><th>\u0627\u0644\u062a\u0627\u0631\u064a\u062e</th><th>\u0627\u0644\u0648\u0642\u062a</th><th>\u0627\u0644\u062d\u0627\u0644\u0629</th><th>\u0627\u0644\u0623\u0639\u0645\u0627\u0644</th></tr></thead><tbody>';var sorted=state.bookings.slice().sort(function(a,b){return new Date(b.createdAt)-new Date(a.createdAt)});sorted.forEach(function(bk,i){var pkg=state.packages.find(function(p){return p.id===bk.packageId});var statusCls=bk.status==='confirmed'?'confirmed':'cancelled';html+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(bk.name)+'</td><td>'+escapeHtml(bk.email)+'</td><td>'+escapeHtml(bk.phone)+'</td><td>'+(pkg?pkg.title:'N/A')+'</td><td>'+formatDateDisplay(bk.date)+'</td><td>'+bk.time+'</td><td><span class="status-badge '+statusCls+'">'+bk.status+'</span></td><td>';if(bk.status==='confirmed')html+='<button class="btn btn-sm btn-danger" onclick="cancelAdminBooking(\''+bk.id+'\')">\u0625\u0644\u063a\u0627\u0621</button>';else html+='<span style="color:#5a6577;font-size:12px">—</span>';html+='</td></tr>'});html+='</tbody></table></div>';list.innerHTML=html}
+function cancelAdminBooking(id){var bk=state.bookings.find(function(b){return b.id===id});if(!bk)return;bk.status='cancelled';saveBookings();renderAdminBookings();showToast('تم إلغاء الحجز رقم '+id,'info')}
 function renderAdminBlockedDates(){var container=document.getElementById('admin-cal-grid');var titleEl=document.getElementById('admin-cal-title');var year=state.aCalYear,month=state.aCalMonth;titleEl.textContent=MONTH_NAMES[month]+' '+year;var firstDay=new Date(year,month,1).getDay();var daysInMonth=new Date(year,month+1,0).getDate();var today=new Date();today.setHours(0,0,0,0);var html='';DAY_NAMES.forEach(function(d){html+='<div class="cal-day-name">'+d+'</div>'});for(var i=0;i<firstDay;i++)html+='<div class="cal-cell empty"></div>';for(var day=1;day<=daysInMonth;day++){var dt=new Date(year,month,day);var ds=formatDateStr(dt);var isPast=dt<today;var isFri=dt.getDay()===5;var isBlocked=state.blockedDates.indexOf(ds)!==-1;var cls='cal-cell';if(isPast)cls+=' past';if(isFri)cls+=' friday';if(isBlocked)cls+=' blocked';if(!isPast&&!isFri)cls+=' selectable';var oc='';if(!isPast&&!isFri)oc=" onclick=\"toggleAdminBlockDate('"+ds+"')\"";html+='<div class="'+cls+'"'+oc+'>'+day+'</div>'}container.innerHTML=html;renderBlockedList()}
-function renderBlockedList(){var list=document.getElementById('admin-blocked-list');if(!state.blockedDates.length){list.innerHTML='<div style="color:#5a6577;font-size:14px;padding:12px 0">لا توجد تواريخ محظورة</div>';return}var sorted=state.blockedDates.slice().sort();var html='';sorted.forEach(function(ds){html+='<div class="blocked-date-tag">'+formatDateDisplay(ds)+' <button onclick="toggleAdminBlockDate(\''+ds+'\')" title="Remove">&#10005;</button></div>'});list.innerHTML=html}
+function renderBlockedList(){var list=document.getElementById('admin-blocked-list');if(!state.blockedDates.length){list.innerHTML='<div style="color:#5a6577;font-size:14px;padding:12px 0">لا توجد تواريخ محظورة</div>';return}var sorted=state.blockedDates.slice().sort();var html='';sorted.forEach(function(ds){html+='<div class="blocked-date-tag">'+formatDateDisplay(ds)+' <button onclick="toggleAdminBlockDate(\''+ds+'\')" title="Remove">✕</button></div>'});list.innerHTML=html}
 function renderAdminSettings(){var wrap=document.getElementById('admin-settings-content');var html='<div style="max-width:500px">';html+='<div class="form-group" style="margin-bottom:20px"><label style="display:block;margin-bottom:6px;font-weight:600">رقم واتساب</label><p style="color:#8892a4;font-size:13px;margin-bottom:8px">الرقم الي هتتصل له رسالة واتساب بعد كل حجز</p><input type="tel" id="admin-whatsapp-num" value="'+escapeHtml(state.whatsappNumber)+'" placeholder="الرقم مع كود البلد (مثلا: 201000000000+)"/></div>';html+='<button class="btn btn-primary" onclick="saveAdminWhatsapp()">حفظ الرقم</button>';html+='</div>';wrap.innerHTML=html}
 function saveAdminWhatsapp(){var num=document.getElementById('admin-whatsapp-num').value.trim();state.whatsappNumber=num;saveWhatsappNumber();showToast(num?'تم حفظ رقم الواتساب: '+num:'تم مسح رقم الواتساب','success')}
 function toggleAdminBlockDate(ds){var idx=state.blockedDates.indexOf(ds);if(idx!==-1){state.blockedDates.splice(idx,1);showToast('تم إلغاء حظر التاريخ: '+formatDateDisplay(ds),'info')}else{state.blockedDates.push(ds);showToast('تم حظر التاريخ: '+formatDateDisplay(ds),'warning')}saveBlockedDates();renderAdminBlockedDates();if(state.selectedDate===ds){state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary()}}
@@ -642,7 +694,7 @@ function calPrev(type){if(type==='booking'){state.bCalMonth--;if(state.bCalMonth
 function calNext(type){if(type==='booking'){state.bCalMonth++;if(state.bCalMonth>11){state.bCalMonth=0;state.bCalYear++}renderBookingCalendar()}else{state.aCalMonth++;if(state.aCalMonth>11){state.aCalMonth=0;state.aCalYear++}renderAdminBlockedDates()}}
 function handleRoute(){var hash=location.hash;if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
 function toggleChat(){state.chatOpen=!state.chatOpen;var widget=document.getElementById('chat-widget');var badge=document.getElementById('chat-badge');if(state.chatOpen){widget.classList.add('open');badge.style.display='none';if(state.chatMessages.length===0)initChat();document.getElementById('chat-input').focus()}else{widget.classList.remove('open')}}
-function initChat(){addChatBotMessage('&#1604;&#1575; &#1607;&#1604;&#1575; &#1608;&#1587;&#1607;&#1604;&#1575; &#1576;&#1610;&#1603; &#1601;&#1610; BeDoz Photography! &#128247;<br/>&#1571;&#1606;&#1575; &#1605;&#1587;&#1575;&#1593;&#1583;&#1603; &#1575;&#1604;&#1575;&#1601;&#1590;&#1575;&#1585;&#1610; &#1548; &#1571;&#1602;&#1583;&#1585; &#1571;&#1587;&#1575;&#1593;&#1583;&#1603; &#1601;&#1610; &#1571;&#1610; &#1581;&#1575;&#1580;&#1577; &#1578;&#1582;&#1589; &#1575;&#1604;&#1576;&#1575;&#1602;&#1575;&#1578; &#1608;&#1575;&#1604;&#1571;&#1587;&#1594;&#1575;&#1585; &#1608;&#1575;&#1604;&#1581;&#1580;&#1586;.',['&#128230; &#1575;&#1604;&#1576;&#1575;&#1602;&#1575;&#1578;','&#128176; &#1575;&#1604;&#1571;&#1587;&#1594;&#1575;&#1585;','&#128197; &#1575;&#1604;&#1581;&#1580;&#1586;','&#128222; &#1578;&#1608;&#1575;&#1589;&#1604;'])}
+function initChat(){addChatBotMessage('أهلاً وسهلاً بيكي في BeDoz Photography! 📸<br/>أنا مساعدك האישי، وأنا هنا عشان أساعدك تلاقي الباقة المثالية لفرحتك أو أي حدث مهم عندك 🤍<br/>قولّي إيه اللي محتاجه وأنا هساعدك!',['📦 الباقات','💰 الأسعار','📅 الحجز','📞 التواصل'])}
 function addChatBotMessage(text,quickReplies){var msgDiv=document.getElementById('chat-messages');var html='<div class="chat-msg bot"><div class="chat-avatar">B</div><div><div class="chat-bubble">'+text+'</div>';if(quickReplies&&quickReplies.length){html+='<div class="quick-replies">';quickReplies.forEach(function(qr){html+='<button class="quick-reply-btn" onclick="sendQuickReply(this.getAttribute(\'data-text\'))" data-text="'+escapeHtml(qr)+'">'+qr+'</button>'});html+='</div>'}html+='</div></div>';msgDiv.innerHTML+=html;msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'bot'})}
 function addUserMessage(text){var msgDiv=document.getElementById('chat-messages');msgDiv.innerHTML+='<div class="chat-msg user"><div class="chat-avatar">U</div><div><div class="chat-bubble">'+escapeHtml(text)+'</div></div></div>';msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'user'})}
 function showChatTyping(){document.getElementById('chat-typing').classList.add('active')}
@@ -650,17 +702,19 @@ function hideChatTyping(){document.getElementById('chat-typing').classList.remov
 function sendChatMessage(){var input=document.getElementById('chat-input');var text=input.value.trim();if(!text)return;input.value='';addUserMessage(text);showChatTyping();setTimeout(function(){hideChatTyping();var resp=getBotResponse(text);addChatBotMessage(resp.text,resp.quickReplies)},800+Math.random()*600)}
 function sendQuickReply(text){addUserMessage(text);showChatTyping();setTimeout(function(){hideChatTyping();var resp=getBotResponse(text);addChatBotMessage(resp.text,resp.quickReplies)},600+Math.random()*400)}
 function getBotResponse(input){var l=input.toLowerCase();
-if(/(ahlan|marhaba|hi|hello|hey|salam|\u0647\u0644\u0627|\u0623\u0647\u0644\u0627|\u0627\u0647\u1604\u0627|\u0627\u0644\u0633\u0644\u0627\u0645|\u0645\u0631\u062d\u0628\u0627)/i.test(l))return{text:'\u0623\u0647\u0644\u0627 \u0628\u064a\u0643 \u062a\u0627\u0646\u064A! \uD83D\uDE0A<br/>\u0623\u0646\u0627 \u0645\u0633\u0627\u0639\u160F\u0643 \u0627\u0644\u0627\u0641\u160F\u0636\u0627\u0631\u064A; \u0623\u0642\u160F\u062F\u0631 \u0623\u0633\u0627\u0639\u160F\u062F\u0643 \u0641\u064A \u0623\u064A \u062D\u0627\u062C\u0629 \u062A\u062E\u0635 \u0627\u0644\u0628\u0627\u0642\u0627\u062A \u0648\u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0648\u0627\u0644\u062D\u062C\u0632;',quickReplies:['\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A','\uD83D\uDCB0 \u0627\u0644\u0623\u0633\u0639\u0627\u0631','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCDE \u062A\u0648\u0627\u0635\u0644']};
-if(/(\u0628\u0627\u0642\u0627\u062A|\u0628\u0627\u0642\u0629|\u0628\u0627\u0642\u0647|pacakge|packages)/i.test(l))return{text:'\u0639\u0646\u062F\u0646\u0627 4 \u0628\u0627\u0642\u0627\u062A \u0645\u062E\u062A\u0644\u0641\u0629:<br/><br/>\uD83D\uDC65 Casual/Outdoor - 1,500 \u062C\u0646\u064A\u0647<br/>\uD83D\uDCF8 Studio Portraits - 2,500 \u062C\u0646\u064A\u0647 \u2B50<br/>\uD83D\uDC92 Wedding Coverage - 8,000 \u062C\u0646\u064A\u0647<br/>\uD83C\uDF89 Event/Corporate - 4,000 \u062C\u0646\u064A\u0647<br/><br/>\u0639\u0627\u0626\u0632 \u062A\u0639\u0631\u0641 \u062A\u0641\u0627\u0635\u064A\u0644 \u0623\u064A \u0628\u0627\u0642\u0629;',quickReplies:['\uD83D\uDC65 Casual','\uD83D\uDCF8 Studio','\uD83D\uDC92 Wedding','\uD83C\uDF89 Event','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632']};
-if(/(\u0623\u0633\u0639\u0627\u1583|\u0633\u0639\u1585|\u0628\u0643\u0627\u0645|\u0643\u0627\u0645|cost|price|pricing)/i.test(l))return{text:'\uD83D\uDCB0 \u0623\u0633\u0639\u0627\u0631\u0646\u0627:<br/><br/>\uD83D\uDCF8 Casual/Outdoor: 1,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 - 15 \u0635\u0648\u0631\u0629<br/>\uD83D\uDCF8 Studio Portraits: 2,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 \u0648\u0646\u0635 - 30 \u0635\u0648\u0631\u0629<br/>\uD83D\uDC92 Wedding: 8,000 \u062C\u0646\u064A\u0647 - \u064A\u0648\u0645 \u0643\u0627\u0645\u0644 - 200+ \u0635\u0648\u0631\u0629<br/>\uD83C\uDF89 Event: 4,000 \u062C\u0646\u064A\u0647 - 4 \u0633\u0627\u0639\u0627\u062A - 80 \u0635\u0648\u0631\u0629<br/><br/>\u0643\u0644 \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0634\u0627\u0645\u0644\u0629 \u0627\u0644\u062A\u0639\u062F\u064A\u0644 \u0627\u0644\u0623\u0633\u0627\u0633\u064A\u0629;',quickReplies:['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u0641\u0631\u062D|\u0639\u0631\u0648\u0633|\u0641\u0631\u0633\u0629|wedding|marriage|bride|groom)/i.test(l))return{text:'\uD83D\uDC92 \u062A\u0635\u0648\u064A\u0631 \u0627\u0644\u0641\u0631\u062D:<br/><br/>\uD83D\uDCB0 8,000 \u062C\u0646\u064A\u0647<br/>\u23F1 \u064A\u0648\u0645 \u0643\u0627\u0645\u0644<br/>\uD83D\uDCF8 200+ \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0645\u0639\u062F\u062F<br/>\u2713 \u0645\u0635\u0648\u0631 \u062B\u0627\u0646\u064A<br/>\u2713 \u0623\u0644\u0628\u0648\u0645<br/>\u2713 \u062C\u0644\u0633\u0629 \u0627\u0644\u062E\u0637\u0648\u0628\u0629',quickReplies:['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u0633\u062A\u064A\u0648|\u0628\u0648\u0631\u062A\u0631\u064A\u0647|\u0633\u062A\u064A\u0648|\u0634\u0628\u0639|\u0628\u0648\u0631\u062A\u0631\u064A|studio|portrait)/i.test(l))return{text:'\uD83D\uDCF8 Studio Portraits \u2B50 \u0627\u0644\u0623\u0643\u062B\u0631 \u0634\u0639\u0628\u064A\u0639\u064A\u0629<br/><br/>\uD83D\uDCB0 2,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 \u0648\u0646\u0635 - 30 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u0633\u062A\u064A\u0648 \u0645\u0647\u0646\u0621<br/>\u2713 \u0635\u0648\u0631 \u0645\u0647\u0646\u0621\u0629 \u0628\u0639\u062F \u0627\u0644\u062A\u0639\u062F\u064A\u0644<br/>\u2713 \u0639\u0645\u0644 \u0645\u062D\u0637\u0648\u0641 \u0627\u0644\u0627\u0635\u0637\u0648\u0631\u0629<br/>\u2713 \u0625\u0636\u0627\u0621\u0629 \u0627\u0644\u062A\u0639\u062F\u064A\u0644 \u0645\u0634\u0645\u0648\u0644\u0629',quickReplies:['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u0643\u0627\u062C\u0648\u0627\u0644|\u0628\u0631\u0627|outdoor|casual)/i.test(l))return{text:'\uD83D\uDC65 Casual/Outdoor:<br/><br/>\uD83D\uDCB0 1,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 - 15 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0628\u0631\u0627<br/>\u2713 15 \u0635\u0648\u0631\u0629 \u0645\u0639\u062F\u0644\u0629<br/>\u2713 \u0645\u0639\u0631\u0636 \u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A<br/>\u2713 \u0645\u0635\u0648\u0646 \u0623\u0644\u0648\u0627\u0646 \u0628\u0633\u064A\u0637',quickReplies:['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u0627\u064A\u0641\u0646\u062A|\u0634\u0631\u0643\u0629|\u0633\u0627\u0639\u0629|\u062d\u0641\u0644|event|corporate)/i.test(l))return{text:'\uD83C\uDF89 Event / Corporate:<br/><br/>\uD83D\uDCB0 4,000 \u062C\u0646\u064A\u0647 - 4 \u0633\u0627\u0639\u0627\u062A - 80 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0641\u0639\u0627\u0644\u064A<br/>\u2713 \u0635\u0648\u0631 \u062C\u0645\u0639\u064A\u0629<br/>\u2713 \u0635\u0648\u0631 \u0630\u0627\u062A\u064A\u0629<br/>\u2713 \u062A\u0633\u0644\u064A\u0645 \u0641\u0648\u0631\u064A \u062A\u0635\u0648\u064A\u0631',quickReplies:['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u062d\u062C\u0632|book|reserve|schedule|appointment)/i.test(l))return{text:'\u0627\u0644\u062D\u062C\u0632 \u0633\u0647\u0644 \u062C\u062F\u0627\u064B! \uD83D\uDE0A<br/><br/>\u0627\u062E\u062A\u0631 \u0627\u0644\u0628\u0627\u0642\u0629 \u0627\u0644\u062A\u064A \u062A\u0646\u0627\u0633\u0628\u0643<br/>\u0627\u062E\u062A\u0631 \u0627\u0644\u064A\u0648\u0645 \u0648\u0627\u0644\u0648\u0642\u062A<br/>\u0627\u0645\u0644\u0623 \u0628\u064A\u0627\u0646\u0627\u062A\u0643<br/>\u0648\u0647\u0627\u062A \u0627\u0644\u062A\u0623\u0643\u064A\u062F \u0641\u0648\u0631\u064A\u0627\u064B!',quickReplies:['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u062a\u0648\u0627\u0635\u0644|contact|phone|call|location|address|whatsapp)/i.test(l))return{text:'\uD83D\uDCDE \u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0627\u0646\u0627:<br/><br/>\uD83D\uDCF1 \u062A\u0644\u064A\u0641\u0648\u0646: +20 100 000 0000<br/>\uD83D\uDCE7 \u0625\u064A\u0645\u064A\u0644: info@bedoz.com<br/>\uD83D\uDCCD \u0627\u0644\u0645\u0648\u0642\u0639: \u0627\u0644\u0642\u0627\u0647\u0631\u0629<br/>\uD83D\uDCF8 Instagram: @bedoz_photography',quickReplies:['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-if(/(\u062a\u0635\u0648\u064A\u0631|photo|photography)/i.test(l))return{text:'\uD83D\uDCF8 \u0646\u062d\u0646 \u0645\u062a\u062e\u0635\u0635\u064a\u0646 \u0641\u064a \u0627\u0644\u062a\u0635\u0648\u064a\u0631 \u0627\u0644\u0641\u0648\u062a\u0648\u063a\u0631\u0627\u0641\u064a \u0648\u0627\u0644\u062d\u0631\u0641\u064a \u0641\u064a \u0645\u0635\u0631!<br/><br/>\u0627\u062e\u062a\u0631 \u0628\u0627\u0642\u062a\u0643 \u0648\u0646\u062d\u0646 \u0646\u0639\u062a\u0645\u0644 \u0628\u0642\u064a\u0627\u0645\u0643! \uD83D\uDE0E',quickReplies:['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
-return{text:'\u0645\u0627 \u0641\u0647\u0645\u062a\u0643 \u0645\u0646 \u0643\u0644\u0627\u0645\u0643 \u062f\u0644\u062a\u0643 \uD83D\uDE05 \u064a\u0627 \u062a\u0639\u064a\u062f \u062a\u0639\u0631\u0641 \u0623\u0643\u062b\u0631 \u0623\u0648 \u0627\u062e\u062a\u0631 \u0645\u0646 \u0627\u0644\u062e\u0635\u0627\u0626\u0637:',quickReplies:['\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A','\uD83D\uDCB0 \u0627\u0644\u0623\u0633\u0639\u0627\u0631','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCDE \u062a\u0648\u0627\u0635\u0644']}}
+if(/(ahlan|marhaba|hi|hello|hey|salam|\u0647\u0644\u0627|\u0623\u0647\u0644\u0627|\u0627\u0647\u1604\u0627|\u0627\u0644\u0633\u0644\u0627\u0645|\u0645\u0631\u062d\u0628\u0627)/i.test(l))return{text:'أهلاً بيكي تاني! 🤍<br/>قولّي إيه اللي عايز تعرفه وأنا جاهز أساعدك. سواء باقة فرح، بورتريه، أو أي سؤال عندك!',quickReplies:["📦 الباقات","💰 الأسعار","📅 الحجز","📞 التواصل"]};
+if(/(\u0628\u0627\u0642\u0627\u062A|\u0628\u0627\u0642\u0629|\u0628\u0627\u0642\u0647|pacakge|packages)/i.test(l))return{text:'عندنا 4 باقات كل واحدة ليها ذوقها الخاص 🎯<br/><br/>👩‍🦰 كاجوال / تصوير برا - 1,500 ج.م<br/>📸 بورتريه ستوديو - 2,500 ج.م ⭐ الأكثر طلباً<br/>💒 تصوير فرح كامل - 8,000 ج.م<br/>🎉 مناسبات وشركات - 4,000 ج.م<br/><br/>قولّي أي باقة عايز تعرف تفاصيلها!',quickReplies:["👩‍🦰 كاجوال","📸 ستوديو","💒 فرح","🎉 مناسبات","📅 الحجز"]};
+if(/(\u0623\u0633\u0639\u0627\u1583|\u0633\u0639\u1585|\u0628\u0643\u0627\u0645|\u0643\u0627\u0645|cost|price|pricing)/i.test(l))return{text:'💰 الأسعار عندنا كالتالي:<br/><br/>📸 كاجوال: 1,500 ج.م - ساعة - 15 صورة<br/>📸 ستوديو: 2,500 ج.م - ساعة ونص - 30 صورة ⭐<br/>💒 فرح: 8,000 ج.م - يوم كامل - 200+ صورة<br/>🎉 مناسبات: 4,000 ج.م - 4 ساعات - 80 صورة<br/><br/>كل الأسعار شاملة التعديل الأساسي ✨',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u0641\u0631\u062D|\u0639\u0631\u0648\u0633|\u0641\u0631\u0633\u0629|wedding|marriage|bride|groom)/i.test(l))return{text:'💒 تصوير الفرح!<br/><br/>ده أكتر باقة بنحب نشتغل عليها 🤍<br/><br/>💰 8,000 ج.م شاملة:<br/>⏱ يوم كامل تغطية<br/>📷 مصورين اتنين<br/>🖼 200+ صورة معدلة باحتراف<br/>💍 جلسة خطوبة مجاناً<br/>🌐 معرض إلكتروني<br/><br/>الفرح لحظة عمر واحدة.. واحنا بنخليها تctic تctic خالدة!',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u0633\u062A\u064A\u0648|\u0628\u0648\u0631\u062A\u0631\u064A\u0647|\u0633\u062A\u064A\u0648|\u0634\u0628\u0639|\u0628\u0648\u0631\u062A\u0631\u064A|studio|portrait)/i.test(l))return{text:'📸 بورتريه ستوديو ⭐ الأكثر طلباً!<br/><br/>💰 2,500 ج.م - ساعة ونص - 30 صورة<br/><br/>✅ ستوديو احترافي مجهّز<br/>✅ صور معدلة باحتراف<br/>✅ تنوّع في الإطلالات<br/>✅ إضاءة سينمائية<br/>✅ ريتوش مشمول<br/><br/>البورتريه عندنا مش صورة عادية.. ده فن! 🎨',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u0643\u0627\u062C\u0648\u0627\u0644|\u0628\u0631\u0627|outdoor|casual)/i.test(l))return{text:'👩‍🦰 كاجوال / تصوير في البر:<br/><br/>💰 1,500 ج.م - ساعة - 15 صورة<br/><br/>✅ تصوير في مكان مفتوح<br/>✅ 15 صورة معدلة باحتراف<br/>✅ معرض إلكتروني أونلاين<br/>✅ تصحيح ألوان<br/><br/>لو بتحب الطبيعة والتصوير العفوي، دي الباقة ليك! 🌿',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u0627\u064A\u0641\u0646\u062A|\u0634\u0631\u0643\u0629|\u0633\u0627\u0639\u0629|\u062d\u0641\u0644|event|corporate)/i.test(l))return{text:'🎉 مناسبات وشركات:<br/><br/>💰 4,000 ج.م - 4 ساعات - 80 صورة<br/><br/>✅ توثيق الفعالية بالكامل<br/>✅ 80 صورة معدلة باحتراف<br/>✅ صور جماعية للفريق<br/>✅ لقطات حلوة عفوية<br/>✅ تسليم سريع خلال 48 ساعة<br/><br/>شركتك تستاهل أحسن توثيق! 💼',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u062d\u062C\u0632|book|reserve|schedule|appointment)/i.test(l))return{text:'الحجز عندنا سهل أوي! 🎯<br/><br/>1️⃣ اختار الباقة اللي تناسبك<br/>2️⃣ اختار التاريخ والوقت<br/>3️⃣ ملّأ البيانات<br/>4️⃣ تأكيد الحجز<br/><br/>وبعدها هن التواصل معاك على واتساب عشان نتفاهم على التفاصيل! 🤍',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u062a\u0648\u0627\u0635\u0644|contact|phone|call|location|address|whatsapp)/i.test(l))return{text:'📞 تواصلك معانا:<br/><br/>📱 تليفون: +20 100 000 0000<br/>✉️ إيميل: info@bedoz.com<br/>📍 القاهرة، مصر<br/>📸 Instagram: @bedoz_photography<br/><br/>أو ابعتلنا رسالة واتساب وهنرد عليك في أسرع وقت! 💚',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u062a\u0635\u0648\u064A\u0631|photo|photography)/i.test(l))return{text:'📸 احنا متخصصين في التصوير الفوتوغرافي والحرفي في مصر!<br/><br/>سواء فرح، خطوبة، بورتريه، أو فعالية شركة - عندنا الخبرة والذوق اللي يطلّع أحلى صورة فيك 🤍<br/><br/>اختار باقتك وخلّينا نبدأ!',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u062a\u0633\u0644\u064A\u0645|\u062A\u0633\u0644\u064A\u0645|\u0645\u062A\u0649|delivery|when|تمت)/i.test(l))return{text:'⏰ التسليم عندنا:<br/><br/>📦 بورتريه وكاجوال: خلال 3-5 أيام عمل<br/>🎉 مناسبات: خلال 48 ساعة لقطة أولية + أسبوع للتعديل<br/>💒 فرح: خلال أسبوع لقطة أولية + أسبوعين للتعديل الكامل<br/><br/>بنحب نسلّمك أحلى صور بأسرع وقت! 🤍',quickReplies:["📅 الحجز","📦 الباقات"]};
+if(/(\u0634\u0643\u0631\u0627|\u0645\u0645\u0646\u0648\u0646|\u062a\u0643\u0631\u0645|\u0645\u0645\u0646\u0627)/i.test(l))return{text:'الشكر لله! 🤍<br/>أي سؤال تاني عندك أنا هنا. ولو عايز تحجز، اختار الباقة اللي تعجبك وابدأ! 🎯',quickReplies:["📦 الباقات","📅 الحجز","📞 التواصل"]};
+return{text:'مش فاهم أوي.. بس ممكن أساعدك في أي حاجة تانية 🤔<br/>قولّي لو عايز تعرف عن الباقات، الأسعار، الحجز، أو التواصل!',quickReplies:["📦 الباقات","💰 الأسعار","📅 الحجز","📞 التواصل"]}}
 function showToast(message,type){var container=document.getElementById('toast-container');var toast=document.createElement('div');toast.className='toast '+type;toast.textContent=message;container.appendChild(toast);setTimeout(function(){toast.classList.add('fade-out');setTimeout(function(){if(toast.parentNode)toast.parentNode.removeChild(toast)},300)},3500)}
 var headerScrollTimeout;
 window.addEventListener('scroll',function(){clearTimeout(headerScrollTimeout);headerScrollTimeout=setTimeout(function(){var header=document.getElementById('site-header');if(window.scrollY>50)header.classList.add('scrolled');else header.classList.remove('scrolled')},10)});
@@ -690,6 +744,12 @@ function importDataClick(){document.getElementById('import-file-input').click()}
 function importData(e){var file=e.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(ev){try{var data=JSON.parse(ev.target.result);if(!data.packages||!Array.isArray(data.packages)){showToast('صيغة الملاحظ غير صالحة','error');return}if(!confirm('\u0647\u0630\u0627 \u0633\u064a\u063a\u064a\u0631 \u062c\u0645\u064a\u0639 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u064a\u0629 \u0628\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u062d\u0638\u0648\u0638\u0629.\\n\\n\u0627\u0644\u0628\u0627\u0642\u064a\u0627\u062a: '+(data.packages?data.packages.length:0)+'\\n\u0627\u0644\u062d\u062c\u0632\u0627\u062a: '+(data.bookings?data.bookings.length:0)+'\\n\u0627\u0644\u062a\u0648\u0627\u0631\u064a\u062e \u0627\u0644\u0645\u062d\u0638\u0648\u0631\u0629: '+(data.blockedDates?data.blockedDates.length:0)+'\\n\\n\u062a\u0645\u0633\u064a\u0629\u061f')){return}state.packages=data.packages;state.bookings=data.bookings||[];state.blockedDates=data.blockedDates||[];savePackages();saveBookings();saveBlockedDates();renderPublicPackages();renderAdminPackages();renderAdminBookings();renderAdminBlockedDates();showToast('تم استيراد البيانات بنجاح. تم استعادة جميع البيانات.','success')}catch(ex){showToast('فشل الاستيراد: '+ex.message,'error')}};reader.readAsText(file);e.target.value=''}
 function init(){loadData();renderPortfolio();renderPublicPackages();renderBookingCalendar();handleRoute();initEventListeners();setTimeout(function(){var badge=document.getElementById('chat-badge');if(badge)badge.style.display='flex'},3000)}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}
+
+if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.section,.hero-content').forEach(function(el){el.classList.add('fade-in-up');obs.observe(el)})})}
+
+
+if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.section,.hero-content').forEach(function(el){el.classList.add('fade-in-up');obs.observe(el)})})}
+
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}
 </script>
 </body>
