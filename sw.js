@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bedoz-v5';
+const CACHE_NAME = 'bedoz-v6';
 const STATIC_ASSETS = [
   './',
   './index.html',
