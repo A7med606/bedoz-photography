@@ -1,8 +1,8 @@
-const CACHE_NAME = 'bedoz-v3';
+const CACHE_NAME = 'bedoz-v5';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  './',
+  './index.html',
+  './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -23,6 +23,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const { request } = event;
+  if (request.method !== 'GET') return;
 
   event.respondWith(
     caches.match(request).then((cached) => {
