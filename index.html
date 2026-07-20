@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#00e5ff"/>
+<meta name="description" content="BeDoz Photography - Professional photography services in Egypt"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link rel="manifest" href="/manifest.json"/>
+<title>BeDoz Photography | Booking</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#0a0e13;color:#e8eaed;line-height:1.6;overflow-x:hidden}
+a{color:#00e5ff;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+a:hover{color:#33ecff}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;outline:none;border:none}
+input,textarea,select{font-family:inherit;outline:none}
+::selection{background:rgba(0,229,255,0.3);color:#fff}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0a0e13}
+::-webkit-scrollbar-thumb{background:#2a3a4a;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#00e5ff}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,14,19,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid #1e2a36;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.header.scrolled{background:rgba(10,14,19,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.header-logo{display:flex;align-items:center;gap:12px}
+.header-logo .logo-circle{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#0a0e13}
+.header-logo .logo-text{font-size:14px;color:#8892a0;line-height:1.3}
+.header-logo .logo-text strong{display:block;color:#e8eaed;font-size:16px;font-weight:700}
+.menu-toggle{display:none;background:none;border:none;color:#e8eaed;font-size:28px;padding:8px;line-height:1}
+.main-nav{display:flex;align-items:center;gap:8px}
+.main-nav a{padding:8px 18px;border-radius:8px;color:#8892a0;font-size:14px;font-weight:500;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative}
+.main-nav a:hover,.main-nav a.active{color:#00e5ff;background:rgba(0,229,255,0.08)}
+.main-nav a.cta-link{background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;font-weight:700;padding:10px 24px;border-radius:24px}
+.main-nav a.cta-link:hover{box-shadow:0 0 20px rgba(0,229,255,0.3);transform:translateY(-1px)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(0,229,255,0.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(0,136,255,0.06) 0%,transparent 50%);animation:heroFloat 20s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-2%,2%) rotate(1deg)}}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-block;padding:6px 20px;border-radius:24px;border:1px solid #2a3a4a;color:#8892a0;font-size:13px;margin-bottom:24px;background:rgba(17,24,32,0.6)}
+.hero-badge span{color:#00e5ff;font-weight:600}
+.hero h1{font-size:clamp(32px,6vw,72px);font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#e8eaed 50%,#00e5ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(15px,2vw,20px);color:#8892a0;max-width:600px;margin:0 auto 40px;line-height:1.7}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 36px;border-radius:24px;font-size:15px;font-weight:600;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13}
+.btn-primary:hover{box-shadow:0 0 30px rgba(0,229,255,0.3);transform:translateY(-2px)}
+.btn-outline{border:1px solid #2a3a4a;color:#e8eaed;background:transparent}
+.btn-outline:hover{border-color:#00e5ff;color:#00e5ff;background:rgba(0,229,255,0.05)}
+.section{padding:100px 24px;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:60px}
+.section-header h2{font-size:clamp(26px,4vw,42px);font-weight:800;margin-bottom:16px}
+.section-header h2 span{background:linear-gradient(135deg,#00e5ff,#0088ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-header p{color:#8892a0;font-size:17px;max-width:550px;margin:0 auto}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.portfolio-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.portfolio-card .card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.portfolio-card .card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,19,0.95) 0%,rgba(10,14,19,0.2) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.portfolio-card:hover .card-bg{transform:scale(1.1)}
+.portfolio-card:hover .card-overlay{background:linear-gradient(to top,rgba(10,14,19,0.98) 0%,rgba(0,229,255,0.1) 100%)}
+.portfolio-card h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.portfolio-card p{color:#8892a0;font-size:14px}
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.pkg-card{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:32px;position:relative;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);overflow:hidden}
+.pkg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(135deg,#00e5ff,#0088ff);opacity:0;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.pkg-card:hover{border-color:#2a3a4a;transform:translateY(-4px);box-shadow:0 4px 24px rgba(0,0,0,0.3)}
+.pkg-card:hover::before{opacity:1}
+.pkg-card.popular{border-color:rgba(0,229,255,0.3)}
+.pkg-card.popular::before{opacity:1}
+.pkg-badge{position:absolute;top:16px;right:16px;padding:4px 12px;border-radius:24px;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;font-size:11px;font-weight:700;text-transform:uppercase}
+.pkg-card h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.pkg-price{font-size:32px;font-weight:800;color:#00e5ff;margin-bottom:4px}
+.pkg-price span{font-size:15px;color:#8892a0;font-weight:400}
+.pkg-duration{color:#8892a0;font-size:14px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #1e2a36}
+.pkg-features{list-style:none;margin-bottom:28px}
+.pkg-features li{padding:8px 0;color:#8892a0;font-size:14px;display:flex;align-items:center;gap:10px}
+.pkg-features li::before{content:'\2713';color:#00e5ff;font-weight:700;width:20px;height:20px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,255,0.1);border-radius:50%;font-size:11px;flex-shrink:0}
+.pkg-card .btn{width:100%;justify-content:center}
+.booking-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.booking-calendar-wrap{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:24px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.cal-title{font-size:18px;font-weight:700}
+.cal-nav{width:36px;height:36px;border-radius:8px;background:#1c2632;color:#e8eaed;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:1px solid #1e2a36}
+.cal-nav:hover{background:rgba(0,229,255,0.1);border-color:#00e5ff;color:#00e5ff}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-day-name{text-align:center;font-size:12px;color:#5a6577;font-weight:600;padding:8px 0;text-transform:uppercase}
+.cal-cell{text-align:center;padding:10px 4px;border-radius:8px;font-size:14px;font-weight:500;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:default;color:#8892a0}
+.cal-cell.empty{visibility:hidden}
+.cal-cell.past{color:#5a6577;opacity:0.3}
+.cal-cell.friday{color:#5a6577;opacity:0.3}
+.cal-cell.blocked{color:#ff4757;opacity:0.4;text-decoration:line-through}
+.cal-cell.selectable:not(.past):not(.friday):not(.blocked){cursor:pointer;color:#e8eaed}
+.cal-cell.selectable:not(.past):not(.friday):not(.blocked):hover{background:rgba(0,229,255,0.1);color:#00e5ff}
+.cal-cell.selected{background:linear-gradient(135deg,#00e5ff,#0088ff) !important;color:#0a0e13 !important;font-weight:700;opacity:1 !important}
+.cal-cell.today{border:1px solid #00e5ff;opacity:1 !important}
+.cal-legend{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.cal-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#8892a0}
+.cal-legend-dot{width:10px;height:10px;border-radius:50%}
+.time-slots-wrap{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:24px;margin-top:24px}
+.time-slots-title{font-size:16px;font-weight:600;margin-bottom:16px}
+.time-slots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.time-slot{padding:10px 8px;border-radius:8px;border:1px solid #1e2a36;background:#0d1219;color:#8892a0;font-size:14px;font-weight:500;text-align:center;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.time-slot:hover:not(.booked):not(.disabled){border-color:#00e5ff;color:#00e5ff;background:rgba(0,229,255,0.05)}
+.time-slot.selected{background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;border-color:transparent;font-weight:700}
+.time-slot.booked{opacity:0.3;cursor:not-allowed;text-decoration:line-through;color:#ff4757}
+.time-slot.disabled{opacity:0.3;cursor:not-allowed}
+.booking-form-wrap{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:32px}
+.booking-form-wrap h3{font-size:22px;font-weight:700;margin-bottom:24px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:#8892a0;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border-radius:8px;border:1px solid #1e2a36;background:#0d1219;color:#e8eaed;font-size:15px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#00e5ff;box-shadow:0 0 0 3px rgba(0,229,255,0.1)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-group select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238892a0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.form-group select option{background:#151c24;color:#e8eaed}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.booking-summary{background:rgba(0,229,255,0.05);border:1px solid rgba(0,229,255,0.15);border-radius:12px;padding:20px;margin-bottom:24px}
+.booking-summary h4{font-size:14px;color:#00e5ff;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.booking-summary .summary-row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:#8892a0}
+.booking-summary .summary-row span:last-child{color:#e8eaed;font-weight:600}
+.booking-summary .summary-empty{color:#5a6577;font-style:italic;font-size:13px}
+.form-error{color:#ff4757;font-size:12px;margin-top:6px;display:none}
+.form-group.has-error input,.form-group.has-error select,.form-group.has-error textarea{border-color:#ff4757}
+.form-group.has-error .form-error{display:block}
+.btn-block{width:100%;justify-content:center;padding:16px;font-size:16px}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none !important;box-shadow:none !important}
+.chat-widget{position:fixed;bottom:24px;right:24px;z-index:999}
+.chat-toggle{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;font-size:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,229,255,0.3);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative}
+.chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(0,229,255,0.4)}
+.chat-toggle .chat-close{display:none}
+.chat-widget.open .chat-toggle .chat-icon{display:none}
+.chat-widget.open .chat-toggle .chat-close{display:block}
+.chat-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#ff4757;border-radius:50%;font-size:10px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;border:2px solid #0a0e13}
+.chat-window{position:absolute;bottom:72px;right:0;width:370px;max-height:520px;background:#111820;border:1px solid #1e2a36;border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 48px rgba(0,0,0,0.4);animation:chatSlideUp 0.3s ease}
+.chat-widget.open .chat-window{display:flex}
+@keyframes chatSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.chat-header{padding:16px 20px;background:#151c24;border-bottom:1px solid #1e2a36;display:flex;align-items:center;justify-content:space-between}
+.chat-header-info{display:flex;align-items:center;gap:10px}
+.chat-header-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-size:16px;color:#0a0e13;font-weight:700}
+.chat-header-info .name{font-weight:600;font-size:15px}
+.chat-header-info .status{font-size:12px;color:#00e676}
+.chat-header-close{background:none;border:none;color:#8892a0;font-size:20px;padding:4px}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:280px;max-height:340px}
+.chat-msg{display:flex;gap:8px;max-width:88%;animation:msgFadeIn 0.3s ease}
+@keyframes msgFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{align-self:flex-start}
+.chat-msg.user{align-self:flex-end;flex-direction:row-reverse}
+.chat-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px}
+.chat-msg.bot .chat-avatar{background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13}
+.chat-msg.user .chat-avatar{background:#1c2632;color:#8892a0}
+.chat-bubble{padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.5}
+.chat-msg.bot .chat-bubble{background:#151c24;color:#e8eaed;border-bottom-left-radius:4px}
+.chat-msg.user .chat-bubble{background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;border-bottom-right-radius:4px}
+.quick-replies{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding-left:36px}
+.quick-reply-btn{padding:6px 14px;border-radius:24px;border:1px solid #2a3a4a;background:#151c24;color:#00e5ff;font-size:12px;font-weight:500;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);white-space:nowrap}
+.quick-reply-btn:hover{background:rgba(0,229,255,0.1);border-color:#00e5ff}
+.chat-typing{display:none;padding:0 16px 8px 36px;gap:4px;align-items:center}
+.chat-typing.active{display:flex}
+.chat-typing-dot{width:6px;height:6px;border-radius:50%;background:#5a6577;animation:typingBounce 1.4s infinite}
+.chat-typing-dot:nth-child(2){animation-delay:0.2s}
+.chat-typing-dot:nth-child(3){animation-delay:0.4s}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-area{padding:12px 16px;border-top:1px solid #1e2a36;display:flex;gap:8px;background:#151c24}
+.chat-input-area input{flex:1;padding:10px 14px;border-radius:24px;border:1px solid #1e2a36;background:#0d1219;color:#e8eaed;font-size:14px}
+.chat-input-area input:focus{border-color:#00e5ff}
+.chat-input-area button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0}
+.chat-input-area button:hover{transform:scale(1.05)}
+.toast-container{position:fixed;top:90px;right:24px;z-index:10000;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{padding:14px 20px;border-radius:12px;background:#151c24;border:1px solid #1e2a36;color:#e8eaed;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 4px 24px rgba(0,0,0,0.3);animation:toastIn 0.4s ease;pointer-events:auto;max-width:380px}
+.toast.success{border-color:rgba(0,230,118,0.3)}
+.toast.success::before{content:'\2713';color:#00e676;font-weight:700;font-size:16px}
+.toast.error{border-color:rgba(255,71,87,0.3)}
+.toast.error::before{content:'\2715';color:#ff4757;font-weight:700;font-size:16px}
+.toast.warning{border-color:rgba(255,193,7,0.3)}
+.toast.warning::before{content:'\26A0';color:#ffc107;font-size:16px}
+.toast.info{border-color:rgba(0,229,255,0.3)}
+.toast.info::before{content:'\2139';color:#00e5ff;font-size:16px}
+.toast.fade-out{animation:toastOut 0.3s ease forwards}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes toastOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(40px)}}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10001;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-content{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:40px;max-width:440px;width:100%;text-align:center;animation:modalPop 0.3s ease}
+@keyframes modalPop{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+.modal-icon{font-size:48px;margin-bottom:16px}
+.modal-content h3{font-size:24px;font-weight:700;margin-bottom:8px}
+.modal-content .modal-id{color:#00e5ff;font-size:18px;font-weight:700;margin:12px 0}
+.modal-details{text-align:left;background:#0d1219;border-radius:8px;padding:16px;margin:20px 0}
+.modal-details .detail-row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:#8892a0;border-bottom:1px solid #1e2a36}
+.modal-details .detail-row:last-child{border-bottom:none}
+.modal-details .detail-row span:last-child{color:#e8eaed;font-weight:600}
+.footer{background:#111820;border-top:1px solid #1e2a36;padding:60px 24px 30px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand .footer-logo .logo-circle{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#0a0e13}
+.footer-brand p{color:#8892a0;font-size:14px;line-height:1.7;max-width:300px}
+.footer-links h4{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px;color:#e8eaed}
+.footer-links a{display:block;color:#8892a0;font-size:14px;padding:4px 0;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.footer-links a:hover{color:#00e5ff}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid #1e2a36;display:flex;justify-content:space-between;align-items:center;color:#5a6577;font-size:13px}
+#public-site{display:block}
+#admin-panel{display:none}
+.admin-login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.admin-login-box{background:#151c24;border:1px solid #1e2a36;border-radius:16px;padding:48px;width:100%;max-width:400px;text-align:center}
+.admin-login-box .admin-logo{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#0a0e13;margin:0 auto 24px}
+.admin-login-box h2{font-size:24px;font-weight:700;margin-bottom:8px}
+.admin-login-box p{color:#8892a0;font-size:14px;margin-bottom:32px}
+.admin-login-box .form-group{text-align:left}
+.admin-login-error{color:#ff4757;font-size:13px;margin-top:8px;display:none}
+.admin-login-error.show{display:block;animation:shake 0.4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.admin-dashboard{display:flex;min-height:100vh}
+.admin-sidebar{width:260px;background:#151c24;border-right:1px solid #1e2a36;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.admin-sidebar-header{padding:20px 24px;border-bottom:1px solid #1e2a36;display:flex;align-items:center;gap:12px}
+.admin-sidebar-header .logo-circle{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#0a0e13}
+.admin-sidebar-header span{font-weight:600;font-size:15px}
+.admin-sidebar-nav{flex:1;padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.admin-tab{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:8px;color:#8892a0;font-size:14px;font-weight:500;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);background:none;border:none;width:100%;text-align:left;cursor:pointer}
+.admin-tab:hover{background:#1c2632;color:#e8eaed}
+.admin-tab.active{background:rgba(0,229,255,0.08);color:#00e5ff}
+.admin-tab .tab-icon{font-size:18px;width:24px;text-align:center}
+.admin-sidebar-footer{padding:16px 12px;border-top:1px solid #1e2a36}
+.admin-backup-btns{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.admin-backup-btn{padding:10px 12px;border-radius:8px;font-size:13px;font-weight:500;background:rgba(0,229,255,0.06);color:#00e5ff;border:1px solid rgba(0,229,255,0.15);cursor:pointer;transition:all 0.3s;text-align:left;width:100%}
+.admin-backup-btn:hover{background:rgba(0,229,255,0.12);border-color:rgba(0,229,255,0.3)}
+.admin-logout{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:8px;color:#ff4757;font-size:14px;font-weight:500;background:none;border:none;width:100%;text-align:left;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.admin-logout:hover{background:rgba(255,71,87,0.08)}
+.admin-main{flex:1;margin-left:260px;padding:32px}
+.admin-topbar{display:none;align-items:center;justify-content:space-between;padding:16px 24px;background:#151c24;border-bottom:1px solid #1e2a36;position:sticky;top:0;z-index:99}
+.admin-topbar h2{font-size:18px;font-weight:700}
+.admin-topbar-btn{background:none;border:none;color:#e8eaed;font-size:24px;padding:4px}
+.admin-content{display:none}
+.admin-content.active{display:block}
+.admin-content-title{font-size:24px;font-weight:700;margin-bottom:24px}
+.admin-pkg-card{background:#151c24;border:1px solid #1e2a36;border-radius:12px;padding:24px;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.admin-pkg-card.inactive{opacity:0.5}
+.admin-pkg-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.admin-pkg-header h3{font-size:18px;font-weight:700}
+.admin-pkg-toggle{position:relative;width:48px;height:26px;border-radius:13px;background:#1e2a36;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:none}
+.admin-pkg-toggle.on{background:linear-gradient(135deg,#00e5ff,#0088ff)}
+.admin-pkg-toggle::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.admin-pkg-toggle.on::after{left:25px}
+.admin-pkg-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.admin-pkg-fields .full{grid-column:1/-1}
+.admin-pkg-fields input,.admin-pkg-fields textarea{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #1e2a36;background:#0d1219;color:#e8eaed;font-size:14px}
+.admin-pkg-fields input:focus,.admin-pkg-fields textarea:focus{border-color:#00e5ff}
+.admin-pkg-fields label{font-size:12px;font-weight:600;color:#8892a0;margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:0.3px}
+.admin-pkg-actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end}
+.admin-bookings-table{width:100%;border-collapse:collapse;background:#151c24;border:1px solid #1e2a36;border-radius:12px;overflow:hidden}
+.admin-bookings-table th{padding:14px 16px;text-align:left;font-size:12px;font-weight:700;color:#8892a0;text-transform:uppercase;letter-spacing:0.5px;background:#1c2632;border-bottom:1px solid #1e2a36;white-space:nowrap}
+.admin-bookings-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid #1e2a36;color:#8892a0}
+.admin-bookings-table tr:last-child td{border-bottom:none}
+.admin-bookings-table tr:hover td{background:rgba(0,229,255,0.02)}
+.status-badge{padding:4px 10px;border-radius:24px;font-size:11px;font-weight:700;text-transform:uppercase}
+.status-badge.confirmed{background:rgba(0,230,118,0.1);color:#00e676}
+.status-badge.cancelled{background:rgba(255,71,87,0.1);color:#ff4757}
+.btn-sm{padding:6px 14px;font-size:12px;font-weight:600;border-radius:8px}
+.btn-danger{background:rgba(255,71,87,0.1);color:#ff4757;border:1px solid rgba(255,71,87,0.2)}
+.btn-danger:hover{background:rgba(255,71,87,0.2)}
+.no-data{text-align:center;padding:60px 20px;color:#5a6577;font-size:15px}
+.no-data .no-data-icon{font-size:48px;margin-bottom:12px}
+.admin-blocked-list{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.blocked-date-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:24px;background:rgba(255,71,87,0.1);color:#ff4757;font-size:13px;font-weight:500}
+.blocked-date-tag button{background:none;border:none;color:#ff4757;font-size:16px;padding:0;line-height:1}
+
+@media(max-width:768px){
+.header{padding:0 16px;height:60px}
+.menu-toggle{display:block}
+.main-nav{display:none;position:absolute;top:60px;left:0;right:0;background:#111820;flex-direction:column;padding:16px;border-bottom:1px solid #1e2a36;box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+.main-nav.open{display:flex}
+.main-nav a{padding:12px 16px;width:100%;text-align:center}
+.main-nav a.cta-link{margin-top:8px}
+.hero{padding:100px 16px 60px;min-height:auto}
+.hero h1{font-size:28px}
+.hero p{font-size:15px}
+.section{padding:60px 16px}
+.portfolio-grid{grid-template-columns:1fr}
+.packages-grid{grid-template-columns:1fr}
+.booking-section{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.footer-content{grid-template-columns:1fr;gap:32px}
+.footer-bottom{flex-direction:column;gap:8px;text-align:center}
+.chat-window{width:calc(100vw - 32px);right:-8px;max-height:70vh}
+.admin-sidebar{transform:translateX(-100%)}
+.admin-sidebar.open{transform:translateX(0);box-shadow:0 8px 48px rgba(0,0,0,0.4)}
+.admin-topbar{display:flex}
+.admin-main{margin-left:0;padding:16px}
+.admin-pkg-fields{grid-template-columns:1fr}
+.admin-bookings-table{font-size:12px}
+.admin-bookings-table th,.admin-bookings-table td{padding:8px 10px}
+}
+@media(max-width:480px){
+.hero h1{font-size:24px}
+.hero-buttons{flex-direction:column;align-items:center}
+.btn{width:100%;justify-content:center}
+.hero-badge{font-size:11px;padding:4px 14px}
+.pkg-price{font-size:26px}
+.pkg-card{padding:24px 16px}
+.booking-form-wrap{padding:20px 16px}
+.cal-cell{padding:8px 2px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<header class="header" id="site-header">
+<div class="header-logo">
+<div class="logo-circle">B</div>
+<div class="logo-text"><strong>Abdelrahman Ali</strong>Visual Arts</div>
+</div>
+<button class="menu-toggle" id="menu-toggle-btn">&#9776;</button>
+<nav class="main-nav" id="main-nav">
+<a href="#hero" onclick="smoothScroll('hero')">Home</a>
+<a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">Portfolio</a>
+<a href="#packages-section" onclick="smoothScroll('packages-section')">Packages</a>
+<a href="#booking-section" onclick="smoothScroll('booking-section')" class="cta-link">Book Now</a>
+</nav>
+</header>
+<div id="public-site">
+<section class="hero" id="hero">
+<div class="hero-content">
+<div class="hero-badge">&#128247; <span>BeDoz Photography</span> &#8212; Visual Arts Studio</div>
+<h1>Capturing Moments,<br/>Creating Memories</h1>
+<p>Professional photography services in Egypt. From weddings to corporate events, we bring your vision to life with cinematic quality and artistic excellence.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="smoothScroll('portfolio-section')">View Portfolio</button>
+<button class="btn btn-outline" onclick="smoothScroll('booking-section')">Book a Session</button>
+</div>
+</div>
+</section>
+<section class="section" id="portfolio-section">
+<div class="section-header">
+<h2>Our <span>Portfolio</span></h2>
+<p>A glimpse into our creative work across various photography styles</p>
+</div>
+<div class="portfolio-grid" id="portfolio-grid"></div>
+</section>
+<section class="section" id="packages-section">
+<div class="section-header">
+<h2>Photography <span>Packages</span></h2>
+<p>Choose the perfect package for your special moments</p>
+</div>
+<div class="packages-grid" id="packages-grid"></div>
+</section>
+<section class="section" id="booking-section">
+<div class="section-header">
+<h2>Book Your <span>Session</span></h2>
+<p>Select your date, time, and package to get started</p>
+</div>
+<div class="booking-section">
+<div>
+<div class="booking-calendar-wrap">
+<div class="cal-header">
+<button class="cal-nav" onclick="calPrev('booking')">&#8249;</button>
+<span class="cal-title" id="booking-cal-title"></span>
+<button class="cal-nav" onclick="calNext('booking')">&#8250;</button>
+</div>
+<div class="cal-grid" id="booking-cal-grid"></div>
+<div class="cal-legend">
+<div class="cal-legend-item"><div class="cal-legend-dot" style="background:#00e5ff"></div>Selected</div>
+<div class="cal-legend-item"><div class="cal-legend-dot" style="background:#ff4757;opacity:0.4"></div>Blocked</div>
+<div class="cal-legend-item"><div class="cal-legend-dot" style="background:#5a6577;opacity:0.3"></div>Unavailable</div>
+</div>
+</div>
+<div class="time-slots-wrap" id="time-slots-wrap" style="display:none">
+<div class="time-slots-title">Available Time Slots</div>
+<div class="time-slots-grid" id="time-slots-grid"></div>
+</div>
+</div>
+<div class="booking-form-wrap">
+<h3>Booking Details</h3>
+<div class="booking-summary" id="booking-summary">
+<h4>Booking Summary</h4>
+<div class="summary-empty">Select a date and time to see your booking summary</div>
+</div>
+<form id="booking-form" onsubmit="submitBooking(event)">
+<div class="form-row">
+<div class="form-group" id="fg-name">
+<label>Full Name</label>
+<input type="text" id="bk-name" placeholder="Your full name" required/>
+<div class="form-error">Please enter your name</div>
+</div>
+<div class="form-group" id="fg-email">
+<label>Email Address</label>
+<input type="email" id="bk-email" placeholder="you@example.com" required/>
+<div class="form-error">Please enter a valid email</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group" id="fg-phone">
+<label>Phone Number</label>
+<input type="tel" id="bk-phone" placeholder="+20 xxx xxx xxxx" required/>
+<div class="form-error">Please enter your phone number</div>
+</div>
+<div class="form-group" id="fg-package">
+<label>Package</label>
+<select id="bk-package" required>
+<option value="">Select a package</option>
+</select>
+<div class="form-error">Please select a package</div>
+</div>
+</div>
+<div class="form-group">
+<label>Notes (Optional)</label>
+<textarea id="bk-notes" placeholder="Any special requests or details..." rows="3"></textarea>
+</div>
+<button type="submit" class="btn btn-primary btn-block" id="bk-submit" disabled>Confirm Booking</button>
+</form>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-brand">
+<div class="footer-logo">
+<div class="logo-circle">B</div>
+<strong>BeDoz Photography</strong>
+</div>
+<p>Professional photography services by Abdelrahman Ali. Capturing life's most precious moments with artistic excellence and cinematic quality.</p>
+</div>
+<div class="footer-links">
+<h4>Quick Links</h4>
+<a href="#hero" onclick="smoothScroll('hero')">Home</a>
+<a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">Portfolio</a>
+<a href="#packages-section" onclick="smoothScroll('packages-section')">Packages</a>
+<a href="#booking-section" onclick="smoothScroll('booking-section')">Book Now</a>
+</div>
+<div class="footer-links">
+<h4>Contact</h4>
+<a href="#">Phone: +20 100 000 0000</a>
+<a href="#">Email: info@bedoz.com</a>
+<a href="#">Cairo, Egypt</a>
+<a href="#">@bedoz_photography</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>&#169; 2026 BeDoz Photography. All rights reserved.</span>
+<span>Crafted with passion by Abdelrahman Ali</span>
+</div>
+</footer>
+</div>
+<div class="chat-widget" id="chat-widget">
+<button class="chat-toggle" id="chat-toggle-btn">
+<span class="chat-icon">&#128172;</span>
+<span class="chat-close">&#10005;</span>
+<div class="chat-badge" id="chat-badge" style="display:none">1</div>
+</button>
+<div class="chat-window" id="chat-window">
+<div class="chat-header">
+<div class="chat-header-info">
+<div class="chat-header-avatar">B</div>
+<div><div class="name">BeDoz Assistant</div><div class="status">&#9679; Online</div></div>
+</div>
+<button class="chat-header-close" onclick="toggleChat()">&#10005;</button>
+</div>
+<div class="chat-messages" id="chat-messages"></div>
+<div class="chat-typing" id="chat-typing">
+<div class="chat-typing-dot"></div>
+<div class="chat-typing-dot"></div>
+<div class="chat-typing-dot"></div>
+</div>
+<div class="chat-input-area">
+<input type="text" id="chat-input" placeholder="Type a message..."/>
+<button id="chat-send-btn">&#10148;</button>
+</div>
+</div>
+</div>
+<div class="toast-container" id="toast-container"></div>
+<div class="modal-overlay" id="booking-modal">
+<div class="modal-content">
+<div class="modal-icon">&#9989;</div>
+<h3>Booking Confirmed!</h3>
+<p>Your booking has been successfully created</p>
+<div class="modal-id" id="modal-booking-id"></div>
+<div class="modal-details" id="modal-details"></div>
+<button class="btn btn-primary" onclick="closeBookingModal()">Done</button>
+</div>
+</div>
+<div id="admin-panel">
+<div id="admin-login-view" class="admin-login-wrap">
+<div class="admin-login-box">
+<div class="admin-logo">B</div>
+<h2>Admin Panel</h2>
+<p>Enter your password to access the dashboard</p>
+<div class="form-group">
+<label>Password</label>
+<input type="password" id="admin-password" placeholder="Enter admin password"/>
+<div class="admin-login-error" id="admin-login-error">Incorrect password. Try again.</div>
+</div>
+<button class="btn btn-primary btn-block" onclick="adminLogin()">Sign In</button>
+</div>
+</div>
+<div id="admin-dashboard-view" class="admin-dashboard" style="display:none">
+<aside class="admin-sidebar" id="admin-sidebar">
+<div class="admin-sidebar-header">
+<div class="logo-circle">B</div>
+<span>Admin Panel</span>
+</div>
+<nav class="admin-sidebar-nav">
+<button class="admin-tab active" data-tab="packages" onclick="switchAdminTab('packages')">
+<span class="tab-icon">&#128230;</span> Packages
+</button>
+<button class="admin-tab" data-tab="bookings" onclick="switchAdminTab('bookings')">
+<span class="tab-icon">&#128203;</span> Bookings
+</button>
+<button class="admin-tab" data-tab="blocked" onclick="switchAdminTab('blocked')">
+<span class="tab-icon">&#128197;</span> Blocked Dates
+</button>
+</nav>
+<div class="admin-sidebar-footer">
+<div class="admin-backup-btns">
+<button class="admin-backup-btn" onclick="exportData()">&#128228; Export Data</button>
+<button class="admin-backup-btn" onclick="importDataClick()">&#128229; Import Data</button>
+<input type="file" id="import-file-input" accept=".json" style="display:none" onchange="importData(event)"/>
+</div>
+<button class="admin-logout" onclick="adminLogout()">
+<span class="tab-icon">&#128682;</span> Logout
+</button>
+</div>
+</aside>
+<main class="admin-main">
+<div class="admin-topbar">
+<button class="admin-topbar-btn" onclick="toggleAdminSidebar()">&#9776;</button>
+<h2 id="admin-topbar-title">Packages</h2>
+<button class="admin-topbar-btn" onclick="adminLogout()">&#128682;</button>
+</div>
+<div class="admin-content active" id="admin-packages">
+<h2 class="admin-content-title">Manage Packages</h2>
+<div id="admin-packages-list"></div>
+</div>
+<div class="admin-content" id="admin-bookings">
+<h2 class="admin-content-title">Bookings</h2>
+<div id="admin-bookings-list"></div>
+</div>
+<div class="admin-content" id="admin-blocked">
+<h2 class="admin-content-title">Blocked Dates</h2>
+<div class="booking-calendar-wrap">
+<div class="cal-header">
+<button class="cal-nav" onclick="calPrev('admin')">&#8249;</button>
+<span class="cal-title" id="admin-cal-title"></span>
+<button class="cal-nav" onclick="calNext('admin')">&#8250;</button>
+</div>
+<div class="cal-grid" id="admin-cal-grid"></div>
+</div>
+<h3 style="margin-top:24px;font-size:16px;font-weight:600">Blocked Dates</h3>
+<div class="admin-blocked-list" id="admin-blocked-list"></div>
+</div>
+</main>
+</div>
+</div>
+<script>
+var DEFAULT_PACKAGES=[
+{id:1,title:'Casual / Outdoor',price:1500,duration:'1 Hour',photoCount:'15 Photos',features:['Outdoor location shoot','15 edited digital photos','Online gallery access','Basic color correction'],active:true,popular:false},
+{id:2,title:'Studio Portraits',price:2500,duration:'1.5 Hours',photoCount:'30 Photos',features:['Professional studio setup','30 edited digital photos','Multiple outfit changes','Professional lighting','Retouching included'],active:true,popular:true},
+{id:3,title:'Wedding Coverage',price:8000,duration:'Full Day',photoCount:'200+ Photos',features:['Full day coverage','Second photographer','200+ edited photos','Engagement session','Online gallery','Print-ready files'],active:true,popular:false},
+{id:4,title:'Event / Corporate',price:4000,duration:'4 Hours',photoCount:'80 Photos',features:['Event documentation','80 edited digital photos','Team group photos','Candid shots','48-hour preview'],active:true,popular:false}
+];
+var PORTFOLIO_ITEMS=[
+{title:'Wedding',desc:'Love stories captured beautifully',emoji:'\uD83D\uDC8D',gradient:'linear-gradient(135deg,#ff6b9d,#c44dff)'},
+{title:'Portraits',desc:'Professional studio portraits',emoji:'\uD83D\uDCF8',gradient:'linear-gradient(135deg,#00e5ff,#0088ff)'},
+{title:'Events',desc:'Memorable event coverage',emoji:'\uD83C\uDF89',gradient:'linear-gradient(135deg,#ff9800,#f44336)'},
+{title:'Nature',desc:'Outdoor and nature photography',emoji:'\uD83C\uDF3F',gradient:'linear-gradient(135deg,#00e676,#00bfa5)'},
+{title:'Products',desc:'Commercial product shoots',emoji:'\uD83D\uDCE6',gradient:'linear-gradient(135deg,#ffc107,#ff9800)'},
+{title:'Street',desc:'Urban street photography',emoji:'\uD83C\uDFE1\uFE0F',gradient:'linear-gradient(135deg,#7c4dff,#448aff)'}
+];
+var TIME_SLOTS=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
+var MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var state={packages:[],bookings:[],blockedDates:[],adminLoggedIn:false,bCalMonth:new Date().getMonth(),bCalYear:new Date().getFullYear(),aCalMonth:new Date().getMonth(),aCalYear:new Date().getFullYear(),selectedDate:null,selectedTime:null,chatOpen:false,mobileMenuOpen:false,chatMessages:[]};
+function loadData(){try{var pk=localStorage.getItem('bdz_packages');state.packages=pk?JSON.parse(pk):JSON.parse(JSON.stringify(DEFAULT_PACKAGES));var bk=localStorage.getItem('bdz_bookings');state.bookings=bk?JSON.parse(bk):[];var bl=localStorage.getItem('bdz_blocked');state.blockedDates=bl?JSON.parse(bl):[];state.adminLoggedIn=localStorage.getItem('bdz_admin')==='true'}catch(e){state.packages=JSON.parse(JSON.stringify(DEFAULT_PACKAGES));state.bookings=[];state.blockedDates=[];state.adminLoggedIn=false}}
+function savePackages(){try{localStorage.setItem('bdz_packages',JSON.stringify(state.packages))}catch(e){}}
+function saveBookings(){try{localStorage.setItem('bdz_bookings',JSON.stringify(state.bookings))}catch(e){}}
+function saveBlockedDates(){try{localStorage.setItem('bdz_blocked',JSON.stringify(state.blockedDates))}catch(e){}}
+function formatDateStr(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function parseDateStr(s){var p=s.split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]))}
+function formatDateDisplay(s){var d=parseDateStr(s);return DAY_NAMES[d.getDay()]+', '+MONTH_NAMES[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()}
+function generateBookingId(){return 'BDZ'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).substr(2,4).toUpperCase()}
+function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function smoothScroll(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});if(state.mobileMenuOpen)toggleMobileMenu();return false}
+function toggleMobileMenu(){state.mobileMenuOpen=!state.mobileMenuOpen;var nav=document.getElementById('main-nav');if(state.mobileMenuOpen){nav.classList.add('open')}else{nav.classList.remove('open')}}
+function toggleAdminSidebar(){document.getElementById('admin-sidebar').classList.toggle('open')}
+function renderPortfolio(){var grid=document.getElementById('portfolio-grid');var html='';PORTFOLIO_ITEMS.forEach(function(item){html+='<div class="portfolio-card"><div class="card-bg" style="background:'+item.gradient+'">'+item.emoji+'</div><div class="card-overlay"><h3>'+item.title+'</h3><p>'+item.desc+'</p></div></div>'});grid.innerHTML=html}
+function renderPublicPackages(){var grid=document.getElementById('packages-grid');var activePkgs=state.packages.filter(function(p){return p.active});if(!activePkgs.length){grid.innerHTML='<div class="no-data"><div class="no-data-icon">&#128230;</div>No packages available</div>';return}
+var sel=document.getElementById('bk-package');var selVal=sel.value;sel.innerHTML='<option value="">Select a package</option>';var html='';
+activePkgs.forEach(function(pkg){sel.innerHTML+='<option value="'+pkg.id+'">'+pkg.title+' - '+pkg.price+' EGP</option>';
+html+='<div class="pkg-card'+(pkg.popular?' popular':'')+'">';
+if(pkg.popular)html+='<div class="pkg-badge">&#11088; Popular</div>';
+html+='<h3>'+pkg.title+'</h3>';
+html+='<div class="pkg-price">'+pkg.price+' EGP <span>/ '+pkg.duration+'</span></div>';
+html+='<div class="pkg-duration">'+pkg.duration+' &#8226; '+pkg.photoCount+'</div>';
+html+='<ul class="pkg-features">';pkg.features.forEach(function(f){html+='<li>'+f+'</li>'});html+='</ul>';
+html+='<button class="btn btn-primary" onclick="smoothScroll(\'booking-section\')">Book This Package</button>';
+html+='</div>'});grid.innerHTML=html;if(selVal)sel.value=selVal}
+function renderBookingCalendar(){var container=document.getElementById('booking-cal-grid');var titleEl=document.getElementById('booking-cal-title');var year=state.bCalYear,month=state.bCalMonth;titleEl.textContent=MONTH_NAMES[month]+' '+year;var firstDay=new Date(year,month,1).getDay();var daysInMonth=new Date(year,month+1,0).getDate();var today=new Date();today.setHours(0,0,0,0);var html='';DAY_NAMES.forEach(function(d){html+='<div class="cal-day-name">'+d+'</div>'});for(var i=0;i<firstDay;i++)html+='<div class="cal-cell empty"></div>';for(var day=1;day<=daysInMonth;day++){var dt=new Date(year,month,day);var ds=formatDateStr(dt);var isPast=dt<today;var isFri=dt.getDay()===5;var isBlocked=state.blockedDates.indexOf(ds)!==-1;var isSel=state.selectedDate===ds;var isToday=dt.getTime()===today.getTime();var cls='cal-cell';if(isPast)cls+=' past';if(isFri)cls+=' friday';if(isBlocked)cls+=' blocked';if(isToday)cls+=' today';if(isSel)cls+=' selected';if(!isPast&&!isFri&&!isBlocked)cls+=' selectable';var oc='';if(!isPast&&!isFri&&!isBlocked)oc=" onclick=\"selectBookingDate('"+ds+"')\"";html+='<div class="'+cls+'"'+oc+'>'+day+'</div>'}container.innerHTML=html}
+function selectBookingDate(ds){state.selectedDate=ds;state.selectedTime=null;renderBookingCalendar();renderTimeSlots();updateBookingSummary();checkFormValid()}
+function selectBookingTime(t){state.selectedTime=t;renderTimeSlots();updateBookingSummary();checkFormValid()}
+function isTimeBooked(ds,t){return state.bookings.some(function(b){return b.date===ds&&b.time===t&&b.status==='confirmed'})}
+function renderTimeSlots(){var wrap=document.getElementById('time-slots-wrap');var grid=document.getElementById('time-slots-grid');if(!state.selectedDate){wrap.style.display='none';return}wrap.style.display='block';var html='';TIME_SLOTS.forEach(function(slot){var booked=isTimeBooked(state.selectedDate,slot);var sel=state.selectedTime===slot;var cls='time-slot';if(booked)cls+=' booked';if(sel)cls+=' selected';var oc='';if(!booked)oc=" onclick=\"selectBookingTime('"+slot+"')\"";html+='<div class="'+cls+'"'+oc+'>'+slot+'</div>'});grid.innerHTML=html}
+function updateBookingSummary(){var sum=document.getElementById('booking-summary');var pkgSel=document.getElementById('bk-package');var pkgId=pkgSel?pkgSel.value:'';var pkgName='';var pkgPrice='';if(pkgId){var pkg=state.packages.find(function(p){return p.id===parseInt(pkgId)});if(pkg){pkgName=pkg.title;pkgPrice=pkg.price+' EGP'}}if(!state.selectedDate&&!state.selectedTime&&!pkgName){sum.innerHTML='<h4>Booking Summary</h4><div class="summary-empty">Select a date and time to see your booking summary</div>';return}
+var h='<h4>Booking Summary</h4>';h+='<div class="summary-row"><span>Package</span><span>'+(pkgName||'Not selected')+'</span></div>';h+='<div class="summary-row"><span>Date</span><span>'+(state.selectedDate?formatDateDisplay(state.selectedDate):'Not selected')+'</span></div>';h+='<div class="summary-row"><span>Time</span><span>'+(state.selectedTime||'Not selected')+'</span></div>';if(pkgPrice)h+='<div class="summary-row"><span>Price</span><span style="color:#00e5ff;font-size:18px">'+pkgPrice+'</span></div>';sum.innerHTML=h}
+function checkFormValid(){var name=document.getElementById('bk-name').value.trim();var email=document.getElementById('bk-email').value.trim();var phone=document.getElementById('bk-phone').value.trim();var pkg=document.getElementById('bk-package').value;var btn=document.getElementById('bk-submit');var valid=name.length>=2&&email&&phone&&pkg&&state.selectedDate&&state.selectedTime;btn.disabled=!valid}
+function validateField(id,condition){var fg=document.getElementById(id);if(!condition){fg.classList.add('has-error');return false}fg.classList.remove('has-error');return true}
+function submitBooking(e){e.preventDefault();var name=document.getElementById('bk-name').value.trim();var email=document.getElementById('bk-email').value.trim();var phone=document.getElementById('bk-phone').value.trim();var pkgId=parseInt(document.getElementById('bk-package').value);var notes=document.getElementById('bk-notes').value.trim();var v1=validateField('fg-name',name.length>=2);var v2=validateField('fg-email',email.indexOf('@')>0);var v3=validateField('fg-phone',phone.length>=8);var v4=validateField('fg-package',!!pkgId);if(!v1||!v2||!v3||!v4){showToast('Please fill in all required fields correctly','error');return}
+if(!state.selectedDate||!state.selectedTime){showToast('Please select a date and time','error');return}
+if(isTimeBooked(state.selectedDate,state.selectedTime)){showToast('This time slot is already booked. Please choose another.','error');return}
+var bookingId=generateBookingId();var booking={id:bookingId,name:name,email:email,phone:phone,packageId:pkgId,date:state.selectedDate,time:state.selectedTime,notes:notes,status:'confirmed',createdAt:new Date().toISOString()};state.bookings.push(booking);saveBookings();showBookingModal(booking);document.getElementById('booking-form').reset();state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary();document.getElementById('bk-submit').disabled=true}
+function showBookingModal(booking){var pkg=state.packages.find(function(p){return p.id===booking.packageId});document.getElementById('modal-booking-id').textContent=booking.id;var h='';h+='<div class="detail-row"><span>Name</span><span>'+escapeHtml(booking.name)+'</span></div>';h+='<div class="detail-row"><span>Email</span><span>'+escapeHtml(booking.email)+'</span></div>';h+='<div class="detail-row"><span>Phone</span><span>'+escapeHtml(booking.phone)+'</span></div>';h+='<div class="detail-row"><span>Package</span><span>'+(pkg?pkg.title:'N/A')+'</span></div>';h+='<div class="detail-row"><span>Date</span><span>'+formatDateDisplay(booking.date)+'</span></div>';h+='<div class="detail-row"><span>Time</span><span>'+booking.time+'</span></div>';if(booking.notes)h+='<div class="detail-row"><span>Notes</span><span>'+escapeHtml(booking.notes)+'</span></div>';document.getElementById('modal-details').innerHTML=h;document.getElementById('booking-modal').classList.add('active')}
+function closeBookingModal(){document.getElementById('booking-modal').classList.remove('active')}
+function adminLogin(){var pw=document.getElementById('admin-password').value;var errEl=document.getElementById('admin-login-error');if(pw==='bedoz2024'){state.adminLoggedIn=true;try{localStorage.setItem('bdz_admin','true')}catch(e){}document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';switchAdminTab('packages');showToast('Welcome back, Abdelrahman!','success');errEl.classList.remove('show')}else{errEl.classList.add('show');document.getElementById('admin-password').value=''}}
+function adminLogout(){state.adminLoggedIn=false;try{localStorage.setItem('bdz_admin','false')}catch(e){}document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none';document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-password').value='';document.getElementById('admin-login-error').classList.remove('show');showToast('Logged out successfully','info');handleRoute()}
+function switchAdminTab(tab){document.querySelectorAll('.admin-tab').forEach(function(el){el.classList.remove('active')});var btn=document.querySelector('.admin-tab[data-tab="'+tab+'"]');if(btn)btn.classList.add('active');document.querySelectorAll('.admin-content').forEach(function(el){el.classList.remove('active')});var content=document.getElementById('admin-'+tab);if(content)content.classList.add('active');var titles={packages:'Packages',bookings:'Bookings',blocked:'Blocked Dates'};var titleEl=document.getElementById('admin-topbar-title');if(titleEl)titleEl.textContent=titles[tab]||'Admin';if(tab==='packages')renderAdminPackages();if(tab==='bookings')renderAdminBookings();if(tab==='blocked')renderAdminBlockedDates()}
+function renderAdminPackages(){var list=document.getElementById('admin-packages-list');var html='';state.packages.forEach(function(pkg){html+='<div class="admin-pkg-card'+(pkg.active?'':' inactive')+'" id="apkg-'+pkg.id+'">';html+='<div class="admin-pkg-header"><h3>'+escapeHtml(pkg.title)+'</h3>';html+='<button class="admin-pkg-toggle'+(pkg.active?' on':'')+'" onclick="toggleAdminPackageActive('+pkg.id+')" title="Toggle active/inactive"></button></div>';html+='<div class="admin-pkg-fields">';html+='<div><label>Title</label><input type="text" id="apkg-title-'+pkg.id+'" value="'+escapeHtml(pkg.title)+'"/></div>';html+='<div><label>Price (EGP)</label><input type="number" id="apkg-price-'+pkg.id+'" value="'+pkg.price+'"/></div>';html+='<div><label>Duration</label><input type="text" id="apkg-dur-'+pkg.id+'" value="'+escapeHtml(pkg.duration)+'"/></div>';html+='<div><label>Photo Count</label><input type="text" id="apkg-photos-'+pkg.id+'" value="'+escapeHtml(pkg.photoCount)+'"/></div>';html+='<div class="full"><label>Features (one per line)</label><textarea id="apkg-feat-'+pkg.id+'" rows="4">'+pkg.features.join('\n')+'</textarea></div>';html+='</div>';html+='<div class="admin-pkg-actions">';html+='<button class="btn btn-sm btn-outline" onclick="renderAdminPackages()">Cancel</button>';html+='<button class="btn btn-sm btn-primary" onclick="saveAdminPackage('+pkg.id+')">Save Changes</button>';html+='</div></div>'});list.innerHTML=html}
+function saveAdminPackage(id){var pkg=state.packages.find(function(p){return p.id===id});if(!pkg)return;pkg.title=document.getElementById('apkg-title-'+id).value.trim()||pkg.title;pkg.price=parseInt(document.getElementById('apkg-price-'+id).value)||pkg.price;pkg.duration=document.getElementById('apkg-dur-'+id).value.trim()||pkg.duration;pkg.photoCount=document.getElementById('apkg-photos-'+id).value.trim()||pkg.photoCount;var featText=document.getElementById('apkg-feat-'+id).value.trim();pkg.features=featText?featText.split('\n').map(function(f){return f.trim()}).filter(function(f){return f.length>0}):pkg.features;savePackages();renderPublicPackages();renderAdminPackages();showToast('Package "'+pkg.title+'" saved','success')}
+function toggleAdminPackageActive(id){var pkg=state.packages.find(function(p){return p.id===id});if(!pkg)return;pkg.active=!pkg.active;savePackages();renderPublicPackages();renderAdminPackages();showToast(pkg.title+' is now '+(pkg.active?'active':'inactive'),pkg.active?'success':'info')}
+function renderAdminBookings(){var list=document.getElementById('admin-bookings-list');if(!state.bookings.length){list.innerHTML='<div class="no-data"><div class="no-data-icon">&#128203;</div>No bookings yet</div>';return}
+var html='<div style="overflow-x:auto"><table class="admin-bookings-table">';html+='<thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Package</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr></thead><tbody>';var sorted=state.bookings.slice().sort(function(a,b){return new Date(b.createdAt)-new Date(a.createdAt)});sorted.forEach(function(bk,i){var pkg=state.packages.find(function(p){return p.id===bk.packageId});var statusCls=bk.status==='confirmed'?'confirmed':'cancelled';html+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(bk.name)+'</td><td>'+escapeHtml(bk.email)+'</td><td>'+escapeHtml(bk.phone)+'</td><td>'+(pkg?pkg.title:'N/A')+'</td><td>'+formatDateDisplay(bk.date)+'</td><td>'+bk.time+'</td><td><span class="status-badge '+statusCls+'">'+bk.status+'</span></td><td>';if(bk.status==='confirmed')html+='<button class="btn btn-sm btn-danger" onclick="cancelAdminBooking(\''+bk.id+'\')">Cancel</button>';else html+='<span style="color:#5a6577;font-size:12px">&#8212;</span>';html+='</td></tr>'});html+='</tbody></table></div>';list.innerHTML=html}
+function cancelAdminBooking(id){var bk=state.bookings.find(function(b){return b.id===id});if(!bk)return;bk.status='cancelled';saveBookings();renderAdminBookings();showToast('Booking '+id+' cancelled','info')}
+function renderAdminBlockedDates(){var container=document.getElementById('admin-cal-grid');var titleEl=document.getElementById('admin-cal-title');var year=state.aCalYear,month=state.aCalMonth;titleEl.textContent=MONTH_NAMES[month]+' '+year;var firstDay=new Date(year,month,1).getDay();var daysInMonth=new Date(year,month+1,0).getDate();var today=new Date();today.setHours(0,0,0,0);var html='';DAY_NAMES.forEach(function(d){html+='<div class="cal-day-name">'+d+'</div>'});for(var i=0;i<firstDay;i++)html+='<div class="cal-cell empty"></div>';for(var day=1;day<=daysInMonth;day++){var dt=new Date(year,month,day);var ds=formatDateStr(dt);var isPast=dt<today;var isFri=dt.getDay()===5;var isBlocked=state.blockedDates.indexOf(ds)!==-1;var cls='cal-cell';if(isPast)cls+=' past';if(isFri)cls+=' friday';if(isBlocked)cls+=' blocked';if(!isPast&&!isFri)cls+=' selectable';var oc='';if(!isPast&&!isFri)oc=" onclick=\"toggleAdminBlockDate('"+ds+"')\"";html+='<div class="'+cls+'"'+oc+'>'+day+'</div>'}container.innerHTML=html;renderBlockedList()}
+function renderBlockedList(){var list=document.getElementById('admin-blocked-list');if(!state.blockedDates.length){list.innerHTML='<div style="color:#5a6577;font-size:14px;padding:12px 0">No blocked dates</div>';return}var sorted=state.blockedDates.slice().sort();var html='';sorted.forEach(function(ds){html+='<div class="blocked-date-tag">'+formatDateDisplay(ds)+' <button onclick="toggleAdminBlockDate(\''+ds+'\')" title="Remove">&#10005;</button></div>'});list.innerHTML=html}
+function toggleAdminBlockDate(ds){var idx=state.blockedDates.indexOf(ds);if(idx!==-1){state.blockedDates.splice(idx,1);showToast('Date unblocked: '+formatDateDisplay(ds),'info')}else{state.blockedDates.push(ds);showToast('Date blocked: '+formatDateDisplay(ds),'warning')}saveBlockedDates();renderAdminBlockedDates();if(state.selectedDate===ds){state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary()}}
+function calPrev(type){if(type==='booking'){state.bCalMonth--;if(state.bCalMonth<0){state.bCalMonth=11;state.bCalYear--}renderBookingCalendar()}else{state.aCalMonth--;if(state.aCalMonth<0){state.aCalMonth=11;state.aCalYear--}renderAdminBlockedDates()}}
+function calNext(type){if(type==='booking'){state.bCalMonth++;if(state.bCalMonth>11){state.bCalMonth=0;state.bCalYear++}renderBookingCalendar()}else{state.aCalMonth++;if(state.aCalMonth>11){state.aCalMonth=0;state.aCalYear++}renderAdminBlockedDates()}}
+function handleRoute(){var hash=location.hash;if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
+function toggleChat(){state.chatOpen=!state.chatOpen;var widget=document.getElementById('chat-widget');var badge=document.getElementById('chat-badge');if(state.chatOpen){widget.classList.add('open');badge.style.display='none';if(state.chatMessages.length===0)initChat();document.getElementById('chat-input').focus()}else{widget.classList.remove('open')}}
+function initChat(){addChatBotMessage('&#1604;&#1575; &#1607;&#1604;&#1575; &#1608;&#1587;&#1607;&#1604;&#1575; &#1576;&#1610;&#1603; &#1601;&#1610; BeDoz Photography! &#128247;<br/>&#1571;&#1606;&#1575; &#1605;&#1587;&#1575;&#1593;&#1583;&#1603; &#1575;&#1604;&#1575;&#1601;&#1590;&#1575;&#1585;&#1610; &#1548; &#1571;&#1602;&#1583;&#1585; &#1571;&#1587;&#1575;&#1593;&#1583;&#1603; &#1601;&#1610; &#1571;&#1610; &#1581;&#1575;&#1580;&#1577; &#1578;&#1582;&#1589; &#1575;&#1604;&#1576;&#1575;&#1602;&#1575;&#1578; &#1608;&#1575;&#1604;&#1571;&#1587;&#1594;&#1575;&#1585; &#1608;&#1575;&#1604;&#1581;&#1580;&#1586;.',['&#128230; &#1575;&#1604;&#1576;&#1575;&#1602;&#1575;&#1578;','&#128176; &#1575;&#1604;&#1571;&#1587;&#1594;&#1575;&#1585;','&#128197; &#1575;&#1604;&#1581;&#1580;&#1586;','&#128222; &#1578;&#1608;&#1575;&#1589;&#1604;'])}
+function addChatBotMessage(text,quickReplies){var msgDiv=document.getElementById('chat-messages');var html='<div class="chat-msg bot"><div class="chat-avatar">B</div><div><div class="chat-bubble">'+text+'</div>';if(quickReplies&&quickReplies.length){html+='<div class="quick-replies">';quickReplies.forEach(function(qr){html+='<button class="quick-reply-btn" onclick="sendQuickReply(this.getAttribute(\'data-text\'))" data-text="'+escapeHtml(qr)+'">'+qr+'</button>'});html+='</div>'}html+='</div></div>';msgDiv.innerHTML+=html;msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'bot'})}
+function addUserMessage(text){var msgDiv=document.getElementById('chat-messages');msgDiv.innerHTML+='<div class="chat-msg user"><div class="chat-avatar">U</div><div><div class="chat-bubble">'+escapeHtml(text)+'</div></div></div>';msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'user'})}
+function showChatTyping(){document.getElementById('chat-typing').classList.add('active')}
+function hideChatTyping(){document.getElementById('chat-typing').classList.remove('active')}
+function sendChatMessage(){var input=document.getElementById('chat-input');var text=input.value.trim();if(!text)return;input.value='';addUserMessage(text);showChatTyping();setTimeout(function(){hideChatTyping();var resp=getBotResponse(text);addChatBotMessage(resp.text,resp.quickReplies)},800+Math.random()*600)}
+function sendQuickReply(text){addUserMessage(text);showChatTyping();setTimeout(function(){hideChatTyping();var resp=getBotResponse(text);addChatBotMessage(resp.text,resp.quickReplies)},600+Math.random()*400)}
+function getBotResponse(input){var l=input.toLowerCase();
+if(/(ahlan|marhaba|hi|hello|hey|salam|\u0647\u0644\u0627|\u0623\u0647\u0644\u0627|\u0627\u0647\u1604\u0627|\u0627\u0644\u0633\u0644\u0627\u0645|\u0645\u0631\u062d\u0628\u0627)/i.test(l))return{text:'\u0623\u0647\u0644\u0627 \u0628\u064a\u0643 \u062a\u0627\u0646\u064A! \uD83D\uDE0A<br/>\u0623\u0646\u0627 \u0645\u0633\u0627\u0639\u160F\u0643 \u0627\u0644\u0627\u0641\u160F\u0636\u0627\u0631\u064A; \u0623\u0642\u160F\u062F\u0631 \u0623\u0633\u0627\u0639\u160F\u062F\u0643 \u0641\u064A \u0623\u064A \u062D\u0627\u062C\u0629 \u062A\u062E\u0635 \u0627\u0644\u0628\u0627\u0642\u0627\u062A \u0648\u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0648\u0627\u0644\u062D\u062C\u0632;',['\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A','\uD83D\uDCB0 \u0627\u0644\u0623\u0633\u0639\u0627\u0631','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCDE \u062A\u0648\u0627\u0635\u0644']};
+if(/(\u0628\u0627\u0642\u0627\u062A|\u0628\u0627\u0642\u0629|\u0628\u0627\u0642\u0647|pacakge|packages)/i.test(l))return{text:'\u0639\u0646\u062F\u0646\u0627 4 \u0628\u0627\u0642\u0627\u062A \u0645\u062E\u062A\u0644\u0641\u0629:<br/><br/>\uD83D\uDC65 Casual/Outdoor - 1,500 \u062C\u0646\u064A\u0647<br/>\uD83D\uDCF8 Studio Portraits - 2,500 \u062C\u0646\u064A\u0647 \u2B50<br/>\uD83D\uDC92 Wedding Coverage - 8,000 \u062C\u0646\u064A\u0647<br/>\uD83C\uDF89 Event/Corporate - 4,000 \u062C\u0646\u064A\u0647<br/><br/>\u0639\u0627\u0626\u0632 \u062A\u0639\u0631\u0641 \u062A\u0641\u0627\u0635\u064A\u0644 \u0623\u064A \u0628\u0627\u0642\u0629;',['\uD83D\uDC65 Casual','\uD83D\uDCF8 Studio','\uD83D\uDC92 Wedding','\uD83C\uDF89 Event','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632']};
+if(/(\u0623\u0633\u0639\u0627\u1583|\u0633\u0639\u1585|\u0628\u0643\u0627\u0645|\u0643\u0627\u0645|cost|price|pricing)/i.test(l))return{text:'\uD83D\uDCB0 \u0623\u0633\u0639\u0627\u0631\u0646\u0627:<br/><br/>\uD83D\uDCF8 Casual/Outdoor: 1,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 - 15 \u0635\u0648\u0631\u0629<br/>\uD83D\uDCF8 Studio Portraits: 2,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 \u0648\u0646\u0635 - 30 \u0635\u0648\u0631\u0629<br/>\uD83D\uDC92 Wedding: 8,000 \u062C\u0646\u064A\u0647 - \u064A\u0648\u0645 \u0643\u0627\u0645\u0644 - 200+ \u0635\u0648\u0631\u0629<br/>\uD83C\uDF89 Event: 4,000 \u062C\u0646\u064A\u0647 - 4 \u0633\u0627\u0639\u0627\u062A - 80 \u0635\u0648\u0631\u0629<br/><br/>\u0643\u0644 \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0634\u0627\u0645\u0644\u0629 \u0627\u0644\u062A\u0639\u062F\u064A\u0644 \u0627\u0644\u0623\u0633\u0627\u0633\u064A\u0629;',['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u0641\u0631\u062D|\u0639\u0631\u0648\u0633|\u0641\u0631\u0633\u0629|wedding|marriage|bride|groom)/i.test(l))return{text:'\uD83D\uDC92 \u062A\u0635\u0648\u064A\u0631 \u0627\u0644\u0641\u0631\u062D:<br/><br/>\uD83D\uDCB0 8,000 \u062C\u0646\u064A\u0647<br/>\u23F1 \u064A\u0648\u0645 \u0643\u0627\u0645\u0644<br/>\uD83D\uDCF8 200+ \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0645\u0639\u062F\u062F<br/>\u2713 \u0645\u0635\u0648\u0631 \u062B\u0627\u0646\u064A<br/>\u2713 \u0623\u0644\u0628\u0648\u0645<br/>\u2713 \u062C\u0644\u0633\u0629 \u0627\u0644\u062E\u0637\u0648\u0628\u0629',['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u0633\u062A\u064A\u0648|\u0628\u0648\u0631\u062A\u0631\u064A\u0647|\u0633\u062A\u064A\u0648|\u0634\u0628\u0639|\u0628\u0648\u0631\u062A\u0631\u064A|studio|portrait)/i.test(l))return{text:'\uD83D\uDCF8 Studio Portraits \u2B50 \u0627\u0644\u0623\u0643\u062B\u0631 \u0634\u0639\u0628\u064A\u0639\u064A\u0629<br/><br/>\uD83D\uDCB0 2,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 \u0648\u0646\u0635 - 30 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u0633\u062A\u064A\u0648 \u0645\u0647\u0646\u0621<br/>\u2713 \u0635\u0648\u0631 \u0645\u0647\u0646\u0621\u0629 \u0628\u0639\u062F \u0627\u0644\u062A\u0639\u062F\u064A\u0644<br/>\u2713 \u0639\u0645\u0644 \u0645\u062D\u0637\u0648\u0641 \u0627\u0644\u0627\u0635\u0637\u0648\u0631\u0629<br/>\u2713 \u0625\u0636\u0627\u0621\u0629 \u0627\u0644\u062A\u0639\u062F\u064A\u0644 \u0645\u0634\u0645\u0648\u0644\u0629',['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u0643\u0627\u062C\u0648\u0627\u0644|\u0628\u0631\u0627|outdoor|casual)/i.test(l))return{text:'\uD83D\uDC65 Casual/Outdoor:<br/><br/>\uD83D\uDCB0 1,500 \u062C\u0646\u064A\u0647 - \u0633\u0627\u0639\u0629 - 15 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0628\u0631\u0627<br/>\u2713 15 \u0635\u0648\u0631\u0629 \u0645\u0639\u062F\u0644\u0629<br/>\u2713 \u0645\u0639\u0631\u0636 \u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A<br/>\u2713 \u0645\u0635\u0648\u0646 \u0623\u0644\u0648\u0627\u0646 \u0628\u0633\u064A\u0637',['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u0627\u064A\u0641\u0646\u062A|\u0634\u0631\u0643\u0629|\u0633\u0627\u0639\u0629|\u062d\u0641\u0644|event|corporate)/i.test(l))return{text:'\uD83C\uDF89 Event / Corporate:<br/><br/>\uD83D\uDCB0 4,000 \u062C\u0646\u064A\u0647 - 4 \u0633\u0627\u0639\u0627\u062A - 80 \u0635\u0648\u0631\u0629<br/><br/>\u2713 \u062A\u0635\u0648\u064A\u0631 \u0641\u0639\u0627\u0644\u064A<br/>\u2713 \u0635\u0648\u0631 \u062C\u0645\u0639\u064A\u0629<br/>\u2713 \u0635\u0648\u0631 \u0630\u0627\u062A\u064A\u0629<br/>\u2713 \u062A\u0633\u0644\u064A\u0645 \u0641\u0648\u0631\u064A \u062A\u0635\u0648\u064A\u0631',['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u062d\u062C\u0632|book|reserve|schedule|appointment)/i.test(l))return{text:'\u0627\u0644\u062D\u062C\u0632 \u0633\u0647\u0644 \u062C\u062F\u0627\u064B! \uD83D\uDE0A<br/><br/>\u0627\u062E\u062A\u0631 \u0627\u0644\u0628\u0627\u0642\u0629 \u0627\u0644\u062A\u064A \u062A\u0646\u0627\u0633\u0628\u0643<br/>\u0627\u062E\u062A\u0631 \u0627\u0644\u064A\u0648\u0645 \u0648\u0627\u0644\u0648\u0642\u062A<br/>\u0627\u0645\u0644\u0623 \u0628\u064A\u0627\u0646\u0627\u062A\u0643<br/>\u0648\u0647\u0627\u062A \u0627\u0644\u062A\u0623\u0643\u064A\u062F \u0641\u0648\u0631\u064A\u0627\u064B!',['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u062a\u0648\u0627\u0635\u0644|contact|phone|call|location|address|whatsapp)/i.test(l))return{text:'\uD83D\uDCDE \u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0627\u0646\u0627:<br/><br/>\uD83D\uDCF1 \u062A\u0644\u064A\u0641\u0648\u0646: +20 100 000 0000<br/>\uD83D\uDCE7 \u0625\u064A\u0645\u064A\u0644: info@bedoz.com<br/>\uD83D\uDCCD \u0627\u0644\u0645\u0648\u0642\u0639: \u0627\u0644\u0642\u0627\u0647\u0631\u0629<br/>\uD83D\uDCF8 Instagram: @bedoz_photography',['\uD83D\uDCC5 \u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+if(/(\u062a\u0635\u0648\u064A\u0631|photo|photography)/i.test(l))return{text:'\uD83D\uDCF8 \u0646\u062d\u0646 \u0645\u062a\u062e\u0635\u0635\u064a\u0646 \u0641\u064a \u0627\u0644\u062a\u0635\u0648\u064a\u0631 \u0627\u0644\u0641\u0648\u062a\u0648\u063a\u0631\u0627\u0641\u064a \u0648\u0627\u0644\u062d\u0631\u0641\u064a \u0641\u064a \u0645\u0635\u0631!<br/><br/>\u0627\u062e\u062a\u0631 \u0628\u0627\u0642\u062a\u0643 \u0648\u0646\u062d\u0646 \u0646\u0639\u062a\u0645\u0644 \u0628\u0642\u064a\u0627\u0645\u0643! \uD83D\uDE0E',['\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A']};
+return{text:'\u0645\u0627 \u0641\u0647\u0645\u062a\u0643 \u0645\u0646 \u0643\u0644\u0627\u0645\u0643 \u062f\u0644\u062a\u0643 \uD83D\uDE05 \u064a\u0627 \u062a\u0639\u064a\u062f \u062a\u0639\u0631\u0641 \u0623\u0643\u062b\u0631 \u0623\u0648 \u0627\u062e\u062a\u0631 \u0645\u0646 \u0627\u0644\u062e\u0635\u0627\u0626\u0637:',['\uD83D\uDCE6 \u0627\u0644\u0628\u0627\u0642\u0627\u062A','\uD83D\uDCB0 \u0627\u0644\u0623\u0633\u0639\u0627\u0631','\uD83D\uDCC5 \u0627\u0644\u062D\u062C\u0632','\uD83D\uDCDE \u062a\u0648\u0627\u0635\u0644']}}
+function showToast(message,type){var container=document.getElementById('toast-container');var toast=document.createElement('div');toast.className='toast '+type;toast.textContent=message;container.appendChild(toast);setTimeout(function(){toast.classList.add('fade-out');setTimeout(function(){if(toast.parentNode)toast.parentNode.removeChild(toast)},300)},3500)}
+var headerScrollTimeout;
+window.addEventListener('scroll',function(){clearTimeout(headerScrollTimeout);headerScrollTimeout=setTimeout(function(){var header=document.getElementById('site-header');if(window.scrollY>50)header.classList.add('scrolled');else header.classList.remove('scrolled')},10)});
+function initEventListeners(){
+var menuBtn=document.getElementById('menu-toggle-btn');
+if(menuBtn){menuBtn.addEventListener('click',function(e){e.preventDefault();toggleMobileMenu()})}
+var chatToggle=document.getElementById('chat-toggle-btn');
+if(chatToggle){chatToggle.addEventListener('click',function(){toggleChat()})}
+var chatInput=document.getElementById('chat-input');
+if(chatInput){chatInput.addEventListener('keypress',function(e){if(e.key==='Enter')sendChatMessage()})}
+var chatSend=document.getElementById('chat-send-btn');
+if(chatSend){chatSend.addEventListener('click',function(){sendChatMessage()})}
+var adminPw=document.getElementById('admin-password');
+if(adminPw){adminPw.addEventListener('keypress',function(e){if(e.key==='Enter')adminLogin()})}
+var bkName=document.getElementById('bk-name');
+if(bkName)bkName.addEventListener('input',checkFormValid);
+var bkEmail=document.getElementById('bk-email');
+if(bkEmail)bkEmail.addEventListener('input',checkFormValid);
+var bkPhone=document.getElementById('bk-phone');
+if(bkPhone)bkPhone.addEventListener('input',checkFormValid);
+var bkPackage=document.getElementById('bk-package');
+if(bkPackage)bkPackage.addEventListener('change',function(){updateBookingSummary();checkFormValid()});
+window.addEventListener('hashchange',handleRoute);
+}
+function exportData(){var data={packages:state.packages,bookings:state.bookings,blockedDates:state.blockedDates,exportDate:new Date().toISOString(),version:'1.0'};var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='bedoz-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);showToast('Data exported successfully!','success')}
+function importDataClick(){document.getElementById('import-file-input').click()}
+function importData(e){var file=e.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(ev){try{var data=JSON.parse(ev.target.result);if(!data.packages||!Array.isArray(data.packages)){showToast('Invalid backup file format','error');return}if(!confirm('This will replace ALL current data with the backup.\n\nPackages: '+(data.packages?data.packages.length:0)+'\nBookings: '+(data.bookings?data.bookings.length:0)+'\nBlocked Dates: '+(data.blockedDates?data.blockedDates.length:0)+'\n\nContinue?')){return}state.packages=data.packages;state.bookings=data.bookings||[];state.blockedDates=data.blockedDates||[];savePackages();saveBookings();saveBlockedDates();renderPublicPackages();renderAdminPackages();renderAdminBookings();renderAdminBlockedDates();showToast('Data imported successfully! All data restored.','success')};reader.readAsText(file);e.target.value=''}
+function init(){loadData();renderPortfolio();renderPublicPackages();renderBookingCalendar();handleRoute();initEventListeners();setTimeout(function(){var badge=document.getElementById('chat-badge');if(badge)badge.style.display='flex'},3000)}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}
+</script>
+</body>
+</html>
