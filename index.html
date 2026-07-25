@@ -327,6 +327,306 @@ input,textarea,select{font-family:inherit;outline:none}
 .time-slot.selected{transform:scale(1.05);box-shadow:0 2px 12px rgba(0,229,255,0.3)}
 .header-logo .logo-circle{transition:transform 0.3s}
 .header-logo:hover .logo-circle{transform:rotate(10deg) scale(1.05)}
+
+.proposal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #0f1724;
+  overflow: hidden;
+}
+.proposal-overlay.active {
+  display: block;
+}
+.proposal-close {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 2010;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15,23,36,0.9);
+  border: 1px solid #2a3a4a;
+  color: #e0e0e0;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.proposal-close:hover {
+  border-color: #d49a2a;
+  color: #d49a2a;
+}
+.proposal-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.proposal-scroll .slide {
+  min-height: auto;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #0f1724;
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  /* ── Slide container ── */
+  .slide {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 24px 18px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #0f1724;
+  }
+  .slide.white { background: #f5f7fa; color: #1a1a2e; }
+  .slide.dark  { background: #0f1724; color: #fff; }
+
+  .slide-num {
+    font-size: 11px;
+    color: #d49a2a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .slide-title {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .slide-sub {
+    font-size: 13px;
+    color: #2e86ab;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .accent-bar {
+    width: 50px; height: 3px;
+    background: #d49a2a;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+
+  /* ── Cards ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 14px;
+    border-top: 3px solid #2e86ab;
+  }
+  .white .card {
+    background: #eef1f5;
+    border-top-color: #2e86ab;
+  }
+  .card.gold-top { border-top-color: #d49a2a; }
+  .card.green-top { border-top-color: #27ae60; }
+  .card.dark-top { border-top-color: #1b2a4a; }
+
+  .card-icon { font-size: 22px; margin-bottom: 6px; }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .card-body {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #ccc;
+  }
+  .white .card-body { color: #444; }
+  .white .card-title { color: #1b2a4a; }
+
+  /* ── Package cards ── */
+  .pkg {
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 14px;
+    border-top: 3px solid #2e86ab;
+  }
+  .white .pkg { background: #eef1f5; }
+  .pkg.gold { border-top-color: #d49a2a; }
+  .pkg.dark { border-top-color: #1b2a4a; }
+
+  .pkg-badge {
+    background: #d49a2a;
+    color: #1b2a4a;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .pkg-title { font-size: 16px; font-weight: 800; line-height: 1.3; }
+  .pkg-price {
+    font-size: 26px; font-weight: 800;
+    margin: 4px 0 8px;
+  }
+  .pkg-item {
+    font-size: 12px;
+    padding: 3px 0;
+    color: #ccc;
+  }
+  .pkg-item::before { content: "✓  "; color: #27ae60; font-weight: 700; }
+  .white .pkg-item { color: #444; }
+
+  /* ── Buttons ── */
+  .btn {
+    display: block;
+    background: #d49a2a;
+    color: #1b2a4a;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 6px 0;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid #d49a2a;
+    color: #d49a2a;
+  }
+
+  /* ── Steps horizontal ── */
+  .steps {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 6px 0 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .steps::-webkit-scrollbar { height: 3px; }
+  .steps::-webkit-scrollbar-thumb { background: #d49a2a; border-radius: 3px; }
+  .step {
+    min-width: 130px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    border-top: 3px solid #2e86ab;
+  }
+  .white .step { background: #eef1f5; }
+  .step.gold-top { border-top-color: #d49a2a; }
+  .step-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .step-body { font-size: 10px; color: #bbb; }
+  .white .step-body { color: #555; }
+
+  /* ── Benefits list ── */
+  .benefit {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .white .benefit { border-bottom-color: rgba(0,0,0,0.06); }
+  .benefit:last-child { border: none; }
+
+  /* ── Colors ── */
+  .gold { color: #d49a2a; }
+  .blue { color: #2e86ab; }
+  .green { color: #27ae60; }
+  .red { color: #e74c3c; }
+  .white-text { color: #fff; }
+  .dark-text { color: #1b2a4a; }
+  .small { font-size: 11px; }
+  .bold { font-weight: 700; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-14 { margin-bottom: 14px; }
+  .mt-8 { margin-top: 8px; }
+  .text-center { text-align: center; }
+
+  /* ── Nav dots ── */
+  .nav {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 100;
+    background: rgba(15,23,36,0.8);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+  }
+  .nav a {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #555;
+    display: block;
+  }
+  .nav a:hover, .nav a.active { background: #d49a2a; }
+
+  /* ── Comparison table ── */
+  .cmp-row {
+    display: flex;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 11px;
+  }
+  .white .cmp-row { border-bottom-color: rgba(0,0,0,0.05); }
+  .cmp-label { flex: 1; font-weight: 600; }
+  .cmp-value { flex: 1; text-align: left; }
+
+  /* ── Risk table ── */
+  .risk-header {
+    display: flex;
+    background: #1b2a4a;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    border-radius: 8px 8px 0 0;
+    padding: 8px 10px;
+  }
+  .risk-row {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+  .white .risk-row { border-bottom-color: rgba(0,0,0,0.05); }
+  .risk-r { flex: 3; }
+  .risk-m { flex: 6; }
+  .risk-c { flex: 2; text-align: center; }
+
+  /* ── Responsive tweaks ── */
+  @media (min-width: 600px) {
+    .slide { padding: 40px 50px; }
+    .slide-title { font-size: 28px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .step { min-width: 160px; }
+    .step-title { font-size: 14px; }
+    .step-body { font-size: 11px; }
+    .pkg-title { font-size: 18px; }
+  }
+
+  /* Timeline phase colors */
+  .phase-1 { border-top-color: #2e86ab !important; }
+  .phase-2 { border-top-color: #d49a2a !important; }
+  .phase-3 { border-top-color: #27ae60 !important; }
+
 .presentation-overlay{display:none;position:fixed;inset:0;z-index:2000;background:#0a0e13;overflow:hidden}
 .presentation-overlay.active{display:flex;flex-direction:column}
 .pres-header{position:absolute;top:0;left:0;right:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,14,19,0.95);border-bottom:1px solid #1e2a36;z-index:10}
@@ -433,6 +733,7 @@ input,textarea,select{font-family:inherit;outline:none}
 <a href="#packages-section" onclick="smoothScroll('packages-section')">الباقات</a>
 <a href="#booking-section" onclick="smoothScroll('booking-section')" class="cta-link">احجز الحجز</a>
 <a href="#presentation" onclick="goToPresentation()">العرض التقديمي</a>
+<a href="#proposal" onclick="goToProposal()">عرض العميل</a>
 </nav>
 </header>
 <div id="public-site">
@@ -554,7 +855,7 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 <div class="footer-bottom">
 <span>© 2026 BeDoz Photography. محفوظات مغروضة.</span>
-<span>صنع بشغف ❤️ من A7med606</span>
+<span>صنع بشغف ❤️ من Abdelrahman Ali</span>
 </div>
 </footer>
 </div>
@@ -585,6 +886,395 @@ input,textarea,select{font-family:inherit;outline:none}
 </div>
 </div>
 
+
+<div class="proposal-overlay" id="proposal-overlay">
+  <div class="proposal-close" onclick="closeProposal()">✕</div>
+  <div class="proposal-scroll" id="proposal-scroll">
+    <!-- ════════════════════════════════════════ -->
+<!-- SLIDE 1 — TITLE -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide dark" id="s1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <div style="font-size:36px;font-weight:800;line-height:1.2;margin-bottom:6px;">BeDoz<br>Photography</div>
+    <div style="width:60px;height:3px;background:#d49a2a;margin:12px auto;border-radius:2px;"></div>
+    <div style="font-size:15px;color:#2e86ab;font-weight:600;margin-bottom:4px;">نظام حجوزات ذكي  |  موقع تفاعلي  |  مساعد AI</div>
+    <div style="font-size:12px;color:#8899aa;margin-bottom:20px;">عرض الحل المتكامل لأتمتة أعمال التصوير الفوتوغرافي</div>
+    <div style="font-size:11px;color:#667788;">تقديم: أحمد سعيد أحمد صابر<br>مهندس برمجيات ومتخصص أتمتة أعمال</div>
+    <div style="margin-top:14px;font-size:10px;color:#556677;">تموز 2026  |  سرّي</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 2 — PAIN POINTS -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s2">
+  <div class="slide-num">01</div>
+  <div class="slide-title">المشكلة — التكلفة الخفية<br>للعمل اليدوي</div>
+  <div class="slide-sub">كل دقيقة بتضيع في الرد على رسائل السعر والموعد بتكلفك عميل</div>
+  <div class="accent-bar"></div>
+  <div class="grid-2" style="flex:1;">
+    <div class="card">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">استفسارات ضائعة</div>
+      <div class="card-body">أكثر من 60% من العملاء يتجهون لمنافس إذا تأخر الرد. كل استفسار ما ترد عليه فوراً = خسارة.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <div class="card-title">تقويم فوضوي</div>
+      <div class="card-body">مواعيدك على واتساب وإنستغرام. بتضطر تعتذر لأن الموعد صار مأخوذ من غير ما تتذكر.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">حجوزات مزدوجة</div>
+      <div class="card-body">عميلين حجزوا نفس اليوم. تضطر تلغي أحدهم. سمعتك بتتأثر والعميل مابيرجعش.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <div class="card-title">تكرار نفس الردود</div>
+      <div class="card-body">١٠ ساعات أسبوعياً في ردود مكررة. الوقت ده ممكن تصوّر فيه ٣ حفلات زيادة.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 3 — SOLUTION -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s3">
+  <div class="slide-num">02</div>
+  <div class="slide-title">الحل — نظام BeDoz الذكي<br>للحجوزات</div>
+  <div class="slide-sub">منصة متكاملة تشتغل 24 ساعة — تخليك تركز على التصوير وتسيب الأتمتة تشتغل</div>
+  <div class="accent-bar"></div>
+  <div class="grid-2" style="flex:1;">
+    <div class="card gold-top">
+      <div class="card-icon">🖼️</div>
+      <div class="card-title">معرض أعمال تفاعلي</div>
+      <div class="card-body">ألبوم صور احترافي بسرعة فائقة. يشتغل على النت البطيء. العميل يشوف أفضل أعمالك بأول نقرة.</div>
+    </div>
+    <div class="card gold-top">
+      <div class="card-icon">📆</div>
+      <div class="card-title">تقويم حجوزات ذكي</div>
+      <div class="card-body">العميل يختار التاريخ. المواعيد المتاحة بس اللي تظهر. حماية على مستوى DB. مستحيل يتكرر حجز.</div>
+    </div>
+    <div class="card gold-top">
+      <div class="card-icon">📋</div>
+      <div class="card-title">لوحة تحكم كاملة</div>
+      <div class="card-body">تعديل الأسعار في ٣ نقرات. إغلاق أيام الإجازة بضغطة. تشوف كل الحجوزات في لوحة واحدة.</div>
+    </div>
+    <div class="card gold-top">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">مساعد AI مبيعاتي</div>
+      <div class="card-body">يتكلم عربي مصري بطلاقة. يعرف أسعارك وباقاتك. يرد على العملاء وانت بتصور. 24/7.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 4 — CLIENT JOURNEY -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide" id="s4">
+  <div class="slide-num">03</div>
+  <div class="slide-title">رحلة العميل — من أول نقرة<br>للحجز المؤكد</div>
+  <div class="slide-sub">تجربة سلسة لا تحتاج منك أي مجهود</div>
+  <div class="accent-bar"></div>
+  <div class="steps" style="flex:1;align-content:center;">
+    <div class="step">
+      <div class="step-title">العميل بيفتح الموقع</div>
+      <div class="step-body">من رابط في Bio أو واتساب. يشوف المعرض فوراً.</div>
+    </div>
+    <div class="step gold-top">
+      <div class="step-title">يتصفح الأعمال</div>
+      <div class="step-body">معرض صور سريع. يتعرف على أسلوبك. يقتنع.</div>
+    </div>
+    <div class="step">
+      <div class="step-title">يختار الباقة</div>
+      <div class="step-body">عروض أسعار واضحة. يختار المناسبة. بدون سؤال.</div>
+    </div>
+    <div class="step gold-top">
+      <div class="step-title">يختار التاريخ</div>
+      <div class="step-body">التقويم يظهر المواعيد الفاضية بس. يضغط على اليوم.</div>
+    </div>
+    <div class="step">
+      <div class="step-title">يأكد الحجز</div>
+      <div class="step-body">الموعد ينقفل فوراً. يوصل له تأكيد. يوصلک إشعار.</div>
+    </div>
+    <div class="step gold-top">
+      <div class="step-title">AI يتابع ويذكر</div>
+      <div class="step-body">قبل الموعد بيوم، تذكير. بعد التسليم، متابعة رضا.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 5 — PACKAGES INTRO -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide dark" id="s5">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <div style="font-size:30px;font-weight:800;margin-bottom:6px;">اختر باقتك</div>
+    <div style="width:60px;height:3px;background:#d49a2a;margin:10px auto;border-radius:2px;"></div>
+    <div style="font-size:14px;color:#2e86ab;">ثلاث باقات — اختر المستوى المناسب لمرحلة عملك</div>
+    <div style="font-size:11px;color:#8899aa;margin-top:12px;max-width:400px;margin-left:auto;margin-right:auto;">
+      كل الباقات تشمل: موقع PWA متكامل + معرض صور + تقويم حجوزات + منع الحجز المزدوج + لوحة تحكم. يشتغل على جوال، تابلت، ولابتوب ويتركب كأبلكيشن.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 6 — THREE PACKAGES -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s6">
+  <div class="slide-num">04</div>
+  <div class="slide-title">الباقات</div>
+  <div class="slide-sub">Essential  |  Advanced AI  |  Premium Studio</div>
+  <div class="accent-bar"></div>
+  <div style="flex:1;overflow-y:auto;">
+    <!-- Essential -->
+    <div class="pkg">
+      <div class="pkg-title" style="color:#2e86ab;">🚀 Essential — الإطلاق الأساسي</div>
+      <div class="pkg-price" style="color:#2e86ab;">6,500 ج.م</div>
+      <div class="pkg-item">موقع PWA متكامل</div>
+      <div class="pkg-item">معرض صور ديناميكي احترافي</div>
+      <div class="pkg-item">تقويم حجوزات ذكي مع منع الحجز المزدوج</div>
+      <div class="pkg-item">لوحة تحكم بسيطة</div>
+      <div class="pkg-item">الدعم الفني 3 شهور</div>
+    </div>
+    <!-- Advanced -->
+    <div class="pkg gold">
+      <div class="pkg-badge">الأكثر طلباً</div>
+      <div class="pkg-title" style="color:#d49a2a;">⭐ Advanced AI — الباقة الذكية</div>
+      <div class="pkg-price" style="color:#d49a2a;">11,000 ج.م</div>
+      <div class="pkg-item">كل ما في Essential</div>
+      <div class="pkg-item">مساعد AI مبيعاتي بالعامية المصرية</div>
+      <div class="pkg-item">تأكيد الحجز التلقائي</div>
+      <div class="pkg-item">ربط دومين مخصص (bedoz.com)</div>
+      <div class="pkg-item">إدارة متقدمة للباقات والأسعار</div>
+      <div class="pkg-item">دعم ممتاز 6 شهور</div>
+    </div>
+    <!-- Premium -->
+    <div class="pkg dark">
+      <div class="pkg-title" style="color:#1b2a4a;">👑 Premium Studio — المنظومة الشاملة</div>
+      <div class="pkg-price" style="color:#1b2a4a;">15,500 ج.م</div>
+      <div class="pkg-item">كل ما في Advanced</div>
+      <div class="pkg-item">لوحة تحكم متعددة المستخدمين (مساعدين)</div>
+      <div class="pkg-item">نسخ احتياطي سحابي للصور</div>
+      <div class="pkg-item">تذكير واتساب/SMS تلقائي للعملاء</div>
+      <div class="pkg-item">صيانة وتحديثات لمدة سنة</div>
+      <div class="pkg-item">دعم فوري 24/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 7 — ROI -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s7">
+  <div class="slide-num">05</div>
+  <div class="slide-title">العائد على الاستثمار</div>
+  <div class="slide-sub">كم تربح مقابل ما تدفع؟</div>
+  <div class="accent-bar"></div>
+  <div class="grid-2" style="flex:1;">
+    <div class="card">
+      <div class="card-title" style="color:#444;">💰 الوضع الحالي</div>
+      <div class="card-body" style="font-size:11px;">
+        متوسط سعر الحفلة: 2,000 - 4,000 ج.م<br>
+        الحفلات شهرياً: 8 - 12<br>
+        الإيراد الشهري: 16,000 - 48,000 ج.م<br><br>
+        <span class="red bold">تخسر 2-4 استفسارات أسبوعياً</span><br>
+        الخسارة السنوية: 80,000 - 200,000 ج.م
+      </div>
+    </div>
+    <div class="card dark-top">
+      <div class="card-title" style="color:#fff;">📈 بعد تشغيل النظام</div>
+      <div class="card-body" style="color:#ccc;font-size:11px;">
+        النظام 24/7 — ما فيش استفسار ضايع<br>
+        AI يرد فوراً — تحويل 3x أسرع<br>
+        الحفلات المتوقعة: 15 - 25 شهرياً<br>
+        الإيراد المتوقع: 30,000 - 90,000 ج.م<br><br>
+        <span class="gold bold">الزيادة السنوية: 168,000 - 500,000 ج.م</span>
+      </div>
+    </div>
+  </div>
+  <div class="card gold-top mt-8" style="background:#eef1f5;">
+    <div class="card-title" style="color:#1b2a4a;">📊 حسبة العائد</div>
+    <div class="card-body" style="color:#444;">
+      <span class="bold blue">فترة الاسترداد: أقل من شهر واحد</span><br>
+      تكلفة النظام: 6,500 - 15,500 ج.م ← زيادة إيراد: +14,000 - 42,000 ج.م/شهر<br>
+      <span class="bold gold">العائد في السنة الأولى: 1,000% - 3,000%+</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 8 — MARKET COMPARISON -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s8">
+  <div class="slide-num">06</div>
+  <div class="slide-title">مقارنة بالسوق</div>
+  <div class="slide-sub">ليه أسعارنا أقل بنفس الجودة؟</div>
+  <div class="accent-bar"></div>
+  <div class="card mb-8">
+    <div class="card-title">📊 سوق التطوير في مصر 2026</div>
+    <div class="card-body" style="font-size:11px;">
+      <div class="cmp-row"><span class="cmp-label">موقع شركة بسيط</span><span class="cmp-value">8,000 - 20,000 ج.م</span></div>
+      <div class="cmp-row"><span class="cmp-label">موقع احترافي</span><span class="cmp-value">20,000 - 45,000 ج.م</span></div>
+      <div class="cmp-row"><span class="cmp-label">تطبيق ويب مخصص</span><span class="cmp-value">80,000 - 250,000 ج.م</span></div>
+      <div class="cmp-row"><span class="cmp-label">نظام حجوزات كامل</span><span class="cmp-value">100,000 - 250,000 ج.م</span></div>
+      <div class="cmp-row"><span class="cmp-label">دمج AI شات بوت</span><span class="cmp-value">30,000 - 80,000 ج.م</span></div>
+      <div class="cmp-row" style="border:none;"><span class="cmp-label" style="font-size:9px;color:#889;">المصادر: WUZZUFNY, Nova Roids, Code95, VidaNexus</span><span class="cmp-value"></span></div>
+    </div>
+  </div>
+  <div class="card dark-top" style="background:#0f1724;">
+    <div class="card-title" style="color:#fff;">💡 ليه أسعارنا أقل؟</div>
+    <div class="card-body" style="color:#ccc;font-size:11px;">
+      <span class="gold">1.</span> مطور مباشر — لا وكالة ولا وسطاء ولا عمولات<br>
+      <span class="gold">2.</span> MVP-First — نبدأ بالمهم مش بنبني ميزات لـ 5 سنين<br>
+      <span class="gold">3.</span> مكتبة جاهزة — نظام حجوزات وقوالب موجودة = توفير 40% وقت<br>
+      <span class="gold">4.</span> أسعار مصر — ميزة هيكلية 50-70% أقل من أوروبا
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 9 — DELIVERABLES -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide" id="s9">
+  <div class="slide-num">07</div>
+  <div class="slide-title">ماذا تستلم؟</div>
+  <div class="slide-sub">كل شيء مسلم لك — الكود ملكك</div>
+  <div class="accent-bar"></div>
+  <div style="flex:1;overflow-y:auto;">
+    <div class="benefit">🌐 <span class="bold">دومين مخصص</span> — bedozphotography.com مع SSL</div>
+    <div class="benefit">🖼️ <span class="bold">معرض صور احترافي</span> — ديناميكي بموضوع داكن</div>
+    <div class="benefit">📆 <span class="bold">تقويم حجوزات مباشر</span> — العميل يحجز والموعد ينقفل فوراً</div>
+    <div class="benefit">📋 <span class="bold">لوحة تحكم كاملة</span> — تعديل الأسعار، إغلاق الأيام، تقارير</div>
+    <div class="benefit">📱 <span class="bold">PWA</span> — يتركب كأبلكيشن على جوال العميل ويشتغل أوفلاين</div>
+    <div class="benefit">🤖 <span class="bold">مساعد AI مبيعاتي</span> — بالعامية المصرية، يرد ويحجز ويحول</div>
+    <div class="benefit">📊 <span class="bold">نظام تحليلات</span> — يعرفك مصادر الحجوزات والأكتر طلباً</div>
+    <div class="benefit">🛡️ <span class="bold">حماية من الحجز المزدوج</span> — 3 طبقات أمان</div>
+    <div class="benefit">📦 <span class="bold">كود المصدر كامل</span> — أنت المالك. لا ترخيص ولا التزام</div>
+    <div class="benefit">💻 <span class="bold">استضافة + دومين السنة الأولى</span> — مشغل وجاهز من اليوم 1</div>
+    <div class="benefit" style="border:none;">🤝 <span class="bold">شهر دعم فني مجاني</span> — تعديلات وتدريب بعد الإطلاق</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 10 — TIMELINE -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s10">
+  <div class="slide-num">08</div>
+  <div class="slide-title">الجدول الزمني</div>
+  <div class="slide-sub">6 أسابيع — كل أسبوع تسليم</div>
+  <div class="accent-bar"></div>
+  <div class="steps" style="flex:1;align-content:center;">
+    <div class="step phase-1">
+      <div style="font-size:11px;font-weight:800;color:#2e86ab;">الأسبوع 1</div>
+      <div class="step-title">البنية التحتية</div>
+      <div class="step-body">دومين + استضافة + قاعدة بيانات + SSL</div>
+    </div>
+    <div class="step phase-1">
+      <div style="font-size:11px;font-weight:800;color:#d49a2a;">الأسبوع 2</div>
+      <div class="step-title">التصميم (UI/UX)</div>
+      <div class="step-body">واجهة العميل + لوحة التحكم + Figma للموافقة</div>
+    </div>
+    <div class="step phase-2">
+      <div style="font-size:11px;font-weight:800;color:#2e86ab;">الأسبوع 3</div>
+      <div class="step-title">الخلفية (Backend)</div>
+      <div class="step-body">سيرفر + API + حماية + قاعدة بيانات</div>
+    </div>
+    <div class="step phase-2">
+      <div style="font-size:11px;font-weight:800;color:#d49a2a;">الأسبوع 4</div>
+      <div class="step-title">الواجهة (Frontend)</div>
+      <div class="step-body">برمجة الموقع + PWA + ربل بالخلفية</div>
+    </div>
+    <div class="step phase-3">
+      <div style="font-size:11px;font-weight:800;color:#2e86ab;">الأسبوع 5</div>
+      <div class="step-title">الذكاء الاصطناعي</div>
+      <div class="step-body">دمج شات AI + تدريب على الأسعار + ربط بالـ DB</div>
+    </div>
+    <div class="step phase-3">
+      <div style="font-size:11px;font-weight:800;color:#d49a2a;">الأسبوع 6</div>
+      <div class="step-title">الاختبار والإطلاق</div>
+      <div class="step-body">اختبار شامل + رفع + تسليم + تدريب</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 11 — RISKS -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide white" id="s11">
+  <div class="slide-num">09</div>
+  <div class="slide-title">إدارة المخاطر</div>
+  <div class="slide-sub">كل مخاطرة ومعاها الحل</div>
+  <div class="accent-bar"></div>
+  <div style="flex:1;overflow-y:auto;">
+    <div class="risk-header">
+      <span class="risk-r">المخاطرة</span>
+      <span class="risk-m">الحل</span>
+      <span class="risk-c">الثقة</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-r">AI يعطي معلومات غلط</span>
+      <span class="risk-m">البرومبت مقفل + التواريخ من DB مش من AI</span>
+      <span class="risk-c bold green">عالية</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-r">حجز مزدوج</span>
+      <span class="risk-m">3 طبقات: Transactions + Server + Front-end</span>
+      <span class="risk-c bold green">مضمونة</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-r">المطور يختفي</span>
+      <span class="risk-m">الكود كامل مسلم + شهر دعم + أي مطور يكمل</span>
+      <span class="risk-c bold green">متعاقد</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-r">اختراق أو تعطل</span>
+      <span class="risk-m">نسخ احتياطي + HTTPS + JWT + 99.9% uptime</span>
+      <span class="risk-c bold green">مغطاة</span>
+    </div>
+    <div class="risk-row" style="border:none;">
+      <span class="risk-r">قلة حجوزات</span>
+      <span class="risk-m">SEO + رابط Bio + مشاركة سهلة على واتساب</span>
+      <span class="risk-c bold green">مخطط</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 12 — CTA -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide dark" id="s12">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;">🚀 العرض الخاص</div>
+    <div style="width:60px;height:3px;background:#d49a2a;margin:8px auto;border-radius:2px;"></div>
+    <div style="font-size:14px;color:#2e86ab;margin-bottom:14px;">إذا أكدت هذا الأسبوع، تحصل على:</div>
+
+    <div style="background:rgba(255,255,255,0.06);border-radius:12px;padding:14px;border-top:3px solid #d49a2a;margin-bottom:10px;">
+      <div style="font-size:18px;font-weight:800;color:#d49a2a;">🎯 خيار 1: خصم 15%</div>
+      <div style="font-size:12px;color:#bbb;">الأساسية: 5,525 ج.م<br>الذكية: 9,350 ج.م<br>الشاملة: 13,175 ج.م</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.06);border-radius:12px;padding:14px;border-top:3px solid #d49a2a;margin-bottom:14px;">
+      <div style="font-size:18px;font-weight:800;color:#d49a2a;">📦 خيار 2: دومين + استضافة مجاناً</div>
+      <div style="font-size:12px;color:#bbb;">السنة الأولى مجانية — بقيمة 1,500 ج.م</div>
+    </div>
+
+    <a href="mailto:ahmedsaid88899@gmail.com?subject=بدء%20مشروع%20BeDoz" class="btn">📩 اكتب "ابدأ" لأرسل لك العقد</a>
+    <div style="font-size:11px;color:#889;margin-top:6px;">المواسم القادمة قادمة. كل أسبوع تأخير = عملاء تخسرهم.</div>
+
+    <div style="margin-top:18px;padding:12px;background:rgba(255,255,255,0.04);border-radius:10px;">
+      <div style="font-size:13px;color:#d49a2a;font-weight:700;">أحمد سعيد أحمد صابر</div>
+      <div style="font-size:11px;color:#8899aa;">مهندس برمجيات ومتخصص أتمتة أعمال</div>
+      <div style="font-size:12px;color:#bbb;">+201016558430  |  ahmedsaid88899@gmail.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- NAV DOTS -->
+<!-- ════════════════════════════════════════ -->
+  </div>
+</div>
 <div class="presentation-overlay" id="presentation-overlay">
 <div class="pres-header">
 <div class="pres-header-title"><div class="logo-circle">B</div><span>BeDoz Photography — عرض تقديمي</span></div>
@@ -882,7 +1572,7 @@ function saveAdminWhatsapp(){var num=document.getElementById('admin-whatsapp-num
 function toggleAdminBlockDate(ds){var idx=state.blockedDates.indexOf(ds);if(idx!==-1){state.blockedDates.splice(idx,1);showToast('تم إلغاء حظر التاريخ: '+formatDateDisplay(ds),'info')}else{state.blockedDates.push(ds);showToast('تم حظر التاريخ: '+formatDateDisplay(ds),'warning')}saveBlockedDates();renderAdminBlockedDates();if(state.selectedDate===ds){state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary()}}
 function calPrev(type){if(type==='booking'){state.bCalMonth--;if(state.bCalMonth<0){state.bCalMonth=11;state.bCalYear--}renderBookingCalendar()}else{state.aCalMonth--;if(state.aCalMonth<0){state.aCalMonth=11;state.aCalYear--}renderAdminBlockedDates()}}
 function calNext(type){if(type==='booking'){state.bCalMonth++;if(state.bCalMonth>11){state.bCalMonth=0;state.bCalYear++}renderBookingCalendar()}else{state.aCalMonth++;if(state.aCalMonth>11){state.aCalMonth=0;state.aCalYear++}renderAdminBlockedDates()}}
-function handleRoute(){var hash=location.hash;if(hash==='#presentation'){goToPresentation();document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none'}else if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
+function handleRoute(){var hash=location.hash;if(hash==='#proposal'){goToProposal();document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none'}else if(hash==='#presentation'){goToPresentation();document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none'}else if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
 function toggleChat(){state.chatOpen=!state.chatOpen;var widget=document.getElementById('chat-widget');var badge=document.getElementById('chat-badge');if(state.chatOpen){widget.classList.add('open');badge.style.display='none';if(state.chatMessages.length===0)initChat();document.getElementById('chat-input').focus()}else{widget.classList.remove('open')}}
 function initChat(){addChatBotMessage('أهلاً وسهلاً بيكي في BeDoz Photography! 📸<br/>أنا مساعدك האישי، وأنا هنا عشان أساعدك تلاقي الباقة المثالية لفرحتك أو أي حدث مهم عندك 🤍<br/>قولّي إيه اللي محتاجه وأنا هساعدك!',['📦 الباقات','💰 الأسعار','📅 الحجز','📞 التواصل'])}
 function addChatBotMessage(text,quickReplies){var msgDiv=document.getElementById('chat-messages');var html='<div class="chat-msg bot"><div class="chat-avatar">B</div><div><div class="chat-bubble">'+text+'</div>';if(quickReplies&&quickReplies.length){html+='<div class="quick-replies">';quickReplies.forEach(function(qr){html+='<button class="quick-reply-btn" onclick="sendQuickReply(this.getAttribute(\'data-text\'))" data-text="'+escapeHtml(qr)+'">'+qr+'</button>'});html+='</div>'}html+='</div></div>';msgDiv.innerHTML+=html;msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'bot'})}
@@ -941,6 +1631,10 @@ if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(e
 if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.section,.hero-content').forEach(function(el){el.classList.add('fade-in-up');obs.observe(el)})})}
 
 
+
+function goToProposal(){document.getElementById('proposal-overlay').classList.add('active');document.body.style.overflow='hidden';document.getElementById('proposal-scroll').scrollTop=0}
+function closeProposal(){document.getElementById('proposal-overlay').classList.remove('active');document.body.style.overflow=''}
+
 var presCurrent=0;var presTotal=10;
 function goToPresentation(){document.getElementById('presentation-overlay').classList.add('active');presGoTo(0);document.body.style.overflow='hidden'}
 function closePresentation(){document.getElementById('presentation-overlay').classList.remove('active');document.body.style.overflow=''}
@@ -948,7 +1642,7 @@ function presGoTo(n){document.querySelectorAll('.pres-slide').forEach(function(s
 function presNext(){if(presCurrent<presTotal-1)presGoTo(presCurrent+1)}
 function presPrev(){if(presCurrent>0)presGoTo(presCurrent-1)}
 function presUpdateDots(){var d=document.getElementById('pres-dots');d.innerHTML='';for(var i=0;i<presTotal;i++){var dot=document.createElement('div');dot.className='pres-dot'+(i===presCurrent?' active':'');dot.onclick=(function(idx){return function(){presGoTo(idx)}})(i);d.appendChild(dot)}document.getElementById('pres-page').textContent=(presCurrent+1)+' / '+presTotal}
-document.addEventListener('keydown',function(e){if(!document.getElementById('presentation-overlay').classList.contains('active'))return;if(e.key==='ArrowLeft'||e.key===' ')presNext();if(e.key==='ArrowRight')presPrev();if(e.key==='Escape')closePresentation()});
+document.addEventListener('keydown',function(e){if(!document.getElementById('presentation-overlay').classList.contains('active'))return;if(e.key==='ArrowLeft'||e.key===' ')presNext();if(e.key==='ArrowRight')presPrev();if(e.key==='Escape'){closePresentation();closeProposal()}});
 
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}
 </script>
