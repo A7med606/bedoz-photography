@@ -175,7 +175,6 @@ bedoz2024
 
 ## التواصل
 
-- 📸 Instagram: @bedoz_photography
 - 📱 WhatsApp: من خلال الموقع
 - 🌐 الموقع: [a7med606.github.io/bedoz-photography](https://a7med606.github.io/bedoz-photography/)
 
