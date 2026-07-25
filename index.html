@@ -327,6 +327,70 @@ input,textarea,select{font-family:inherit;outline:none}
 .time-slot.selected{transform:scale(1.05);box-shadow:0 2px 12px rgba(0,229,255,0.3)}
 .header-logo .logo-circle{transition:transform 0.3s}
 .header-logo:hover .logo-circle{transform:rotate(10deg) scale(1.05)}
+.presentation-overlay{display:none;position:fixed;inset:0;z-index:2000;background:#0a0e13;overflow:hidden}
+.presentation-overlay.active{display:flex;flex-direction:column}
+.pres-header{position:absolute;top:0;left:0;right:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,14,19,0.95);border-bottom:1px solid #1e2a36;z-index:10}
+.pres-header-title{display:flex;align-items:center;gap:10px}
+.pres-header-title .logo-circle{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#0a0e13}
+.pres-header-title span{color:#8892a0;font-size:13px;font-weight:600}
+.pres-close{background:none;border:1px solid #2a3a4a;color:#e8eaed;width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+.pres-close:hover{border-color:#00e5ff;color:#00e5ff}
+.pres-slides{flex:1;position:relative;overflow:hidden}
+.pres-slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:80px 40px 80px;text-align:center}
+.pres-slide.active{display:flex}
+.pres-slide::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(0,229,255,0.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(0,136,255,0.04) 0%,transparent 50%);pointer-events:none}
+.pres-slide .slide-badge{display:inline-block;padding:8px 24px;border-radius:24px;border:1px solid #2a3a4a;color:#8892a0;font-size:14px;margin-bottom:30px;background:rgba(17,24,32,0.6)}
+.pres-slide .slide-badge span{color:#00e5ff;font-weight:600}
+.pres-slide h1{font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.15;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#e8eaed 50%,#00e5ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pres-slide h2{font-size:clamp(24px,4vw,44px);font-weight:700;margin-bottom:20px;color:#fff}
+.pres-slide h3{font-size:20px;font-weight:600;color:#00e5ff;margin-bottom:16px}
+.pres-slide>p{font-size:clamp(15px,2vw,20px);color:#8892a0;max-width:700px;line-height:1.8;margin:0 auto}
+.pres-quote{font-size:clamp(18px,3vw,28px);font-weight:600;color:#fff;max-width:700px;line-height:1.6;margin-bottom:20px}
+.pres-quote span{color:#00e5ff}
+.pres-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:860px;width:100%;margin-top:28px}
+.pres-fcard{background:rgba(17,24,32,0.8);border:1px solid #1e2a36;border-radius:14px;padding:24px 16px;text-align:center;transition:all 0.3s}
+.pres-fcard:hover{border-color:#00e5ff;transform:translateY(-3px)}
+.pres-fcard .fi{font-size:32px;margin-bottom:10px}
+.pres-fcard .ft{font-size:15px;font-weight:700;color:#e8eaed;margin-bottom:4px}
+.pres-fcard .fd{font-size:12px;color:#6a7a8a;line-height:1.5}
+.pres-pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:900px;width:100%;margin-top:28px}
+.pres-pkg{background:rgba(17,24,32,0.8);border:1px solid #1e2a36;border-radius:14px;padding:20px 14px;position:relative;transition:all 0.3s}
+.pres-pkg:hover{border-color:#00e5ff;transform:translateY(-3px)}
+.pres-pkg.pop{border-color:#00e5ff}
+.pres-pkg.pop::after{content:'الأكثر طلباً';position:absolute;top:-10px;right:14px;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;padding:3px 12px;border-radius:10px;font-size:10px;font-weight:700}
+.pres-pkg .pn{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
+.pres-pkg .pp{font-size:24px;font-weight:800;color:#00e5ff;margin-bottom:2px}
+.pres-pkg .pp span{font-size:12px;color:#5a6a7a;font-weight:500}
+.pres-pkg .pd{font-size:12px;color:#6a7a8a;margin-bottom:10px}
+.pres-pkg ul{list-style:none;text-align:right;padding:0}
+.pres-pkg ul li{font-size:11px;color:#8892a0;padding:3px 0}
+.pres-pkg ul li::before{content:'✅ '}
+.pres-flow{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.pres-step{background:rgba(17,24,32,0.8);border:1px solid #1e2a36;border-radius:14px;padding:20px;width:160px;text-align:center}
+.pres-step .sn{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin:0 auto 10px}
+.pres-step .st{font-size:14px;font-weight:600;color:#e8eaed;margin-bottom:3px}
+.pres-step .sd{font-size:11px;color:#6a7a8a}
+.pres-tech{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px;max-width:700px}
+.pres-tech span{background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);color:#00e5ff;padding:7px 18px;border-radius:18px;font-size:13px;font-weight:500}
+.pres-stats{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.pres-stat{text-align:center}
+.pres-stat .num{font-size:38px;font-weight:800;color:#00e5ff}
+.pres-stat .lbl{font-size:12px;color:#6a7a8a;margin-top:2px}
+.pres-nav{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;z-index:10}
+.pres-nav button{width:44px;height:44px;border-radius:50%;border:1px solid #2a3a4a;background:rgba(10,14,19,0.9);color:#e8eaed;font-size:18px;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(10px)}
+.pres-nav button:hover{border-color:#00e5ff;color:#00e5ff}
+.pres-dots{display:flex;gap:6px}
+.pres-dot{width:8px;height:8px;border-radius:50%;background:#2a3a4a;cursor:pointer;transition:all 0.3s}
+.pres-dot.active{background:#00e5ff;width:22px;border-radius:4px}
+.pres-page{position:absolute;bottom:28px;right:24px;font-size:13px;color:#3a4a5a;font-weight:600;z-index:10}
+@media(max-width:768px){
+  .pres-slide{padding:70px 20px 70px}
+  .pres-pkgs{grid-template-columns:repeat(2,1fr)}
+  .pres-features{grid-template-columns:repeat(2,1fr)}
+  .pres-flow{flex-direction:column;align-items:center}
+  .pres-stats{gap:16px}
+  .pres-stat .num{font-size:28px}
+}
 
 .fade-in-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1),transform 0.6s cubic-bezier(0.16,1,0.3,1)}
 .fade-in-up.visible{opacity:1;transform:translateY(0)}
@@ -368,6 +432,7 @@ input,textarea,select{font-family:inherit;outline:none}
 <a href="#portfolio-section" onclick="smoothScroll('portfolio-section')">أعمالنا</a>
 <a href="#packages-section" onclick="smoothScroll('packages-section')">الباقات</a>
 <a href="#booking-section" onclick="smoothScroll('booking-section')" class="cta-link">احجز الحجز</a>
+<a href="#presentation" onclick="goToPresentation()">العرض التقديمي</a>
 </nav>
 </header>
 <div id="public-site">
@@ -518,6 +583,131 @@ input,textarea,select{font-family:inherit;outline:none}
 <button id="chat-send-btn">➤</button>
 </div>
 </div>
+</div>
+
+<div class="presentation-overlay" id="presentation-overlay">
+<div class="pres-header">
+<div class="pres-header-title"><div class="logo-circle">B</div><span>BeDoz Photography — عرض تقديمي</span></div>
+<button class="pres-close" onclick="closePresentation()">✕</button>
+</div>
+<div class="pres-slides" id="pres-slides">
+<div class="pres-slide active" data-idx="0">
+<div class="slide-badge">📸 <span>BeDoz Photography</span> — استوديو تصوير احترافي</div>
+<h1>نحوّل لحظاتك<br/>لأبدى..</h1>
+<p>صُور تتكلم من غير كلام 🤍</p>
+<p style="margin-top:30px;color:#3a4a5a;font-size:15px">عرض تقديمي شامل عن منصة الحجز الرقمية</p>
+</div>
+<div class="pres-slide" data-idx="1">
+<h2>ليه BeDoz؟ 🤔</h2>
+<p>منصة حجز تصوير احترافية متكاملة صُمّمت عشان تخلّي تجربة العميل من أول لمسة لحد التسليم سلسة وسهلة</p>
+<div class="pres-quote" style="margin-top:28px">كل صورة ليها قصة..<br/><span>وإحنا عارفين نحكاها</span> 🤍</div>
+</div>
+<div class="pres-slide" data-idx="2">
+<h2>المميزات الرئيسية ✨</h2>
+<div class="pres-features">
+<div class="pres-fcard"><div class="fi">📱</div><div class="ft">تصميم Mobile-First</div><div class="fd">يعمل بشكل مثالي على كل الأجهزة</div></div>
+<div class="pres-fcard"><div class="fi">📦</div><div class="ft">عرض الباقات</div><div class="fd">4 باقات باسعار وتفاصيل مختلفة</div></div>
+<div class="pres-fcard"><div class="fi">📅</div><div class="ft">تقويم حجز تفاعلي</div><div class="fd">اختار التاريخ والوقت بسهولة</div></div>
+<div class="pres-fcard"><div class="fi">🤖</div><div class="ft">شات بوت ذكي</div><div class="fd">مساعد يرد بالعربية على استفساراتك</div></div>
+<div class="pres-fcard"><div class="fi">📱</div><div class="ft">واتساب مباشر</div><div class="fd">إرسال الحجز على واتساب فوراً</div></div>
+<div class="pres-fcard"><div class="fi">⚡</div><div class="ft">PWA + Offline</div><div class="fd">يعمل حتى بدون إنترنت</div></div>
+</div>
+</div>
+<div class="pres-slide" data-idx="3">
+<h2>shape el mogod 📱</h2>
+<p style="margin-bottom:24px">تصميم احترافي داكن مع دعم كامل للعربية</p>
+<div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center">
+<div style="width:220px;height:440px;border-radius:28px;border:3px solid #2a3a4a;background:#0a0e13;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,229,255,0.1)">
+<div style="width:100px;height:20px;background:#0a0e13;border-radius:0 0 12px 12px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:1;border:1px solid #1e2a36;border-top:none"></div>
+<div style="width:100%;height:100%;background:linear-gradient(180deg,#0f1520,#0a0e13);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 16px 16px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#0088ff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#0a0e13;margin-bottom:12px">B</div>
+<div style="font-size:12px;font-weight:700;color:#fff;text-align:center;margin-bottom:4px">نحوّل لحظاتك لأبدى..</div>
+<div style="font-size:10px;color:#6a7a8a;text-align:center;margin-bottom:12px">صور تتكلم من غير كلام</div>
+<div style="padding:6px 18px;border-radius:12px;font-size:10px;font-weight:600;background:linear-gradient(135deg,#00e5ff,#0088ff);color:#0a0e13">شوف شغلنا 📸</div>
+</div>
+</div>
+<div style="text-align:right;max-width:300px">
+<h3 style="text-align:right">تصميم احترافي داكن</h3>
+<p style="font-size:14px;text-align:right;line-height:2">
+✅ ألوان داكنة مع لمسات سماوية<br/>
+✅ دعم كامل للعربية RTL<br/>
+✅ تأثيرات حركية متقدمة<br/>
+✅ تجربة مستخدم سلسة
+</p>
+</div>
+</div>
+</div>
+<div class="pres-slide" data-idx="4">
+<h2>الباقات والأسعار 💰</h2>
+<div class="pres-pkgs">
+<div class="pres-pkg"><div class="pn">👩‍🦰 كاجوال</div><div class="pp">1,500 <span>ج.م</span></div><div class="pd">ساعة • 15 صورة</div><ul><li>تصوير في مكان مفتوح</li><li>15 صورة معدلة</li><li>تصحيح ألوان</li></ul></div>
+<div class="pres-pkg pop"><div class="pn">📸 ستوديو</div><div class="pp">2,500 <span>ج.م</span></div><div class="pd">ساعة ونص • 30 صورة</div><ul><li>ستوديو احترافي</li><li>30 صورة معدلة</li><li>إضاءة سينمائية</li></ul></div>
+<div class="pres-pkg"><div class="pn">💒 فرح</div><div class="pp">8,000 <span>ج.م</span></div><div class="pd">يوم كامل • 200+ صورة</div><ul><li>تغطية كاملة</li><li>مصورين اتنين</li><li>جلسة خطوبة مجاناً</li></ul></div>
+<div class="pres-pkg"><div class="pn">🎉 مناسبات</div><div class="pp">4,000 <span>ج.م</span></div><div class="pd">4 ساعات • 80 صورة</div><ul><li>توثيق الفعالية</li><li>صور جماعية</li><li>تسليم سريع</li></ul></div>
+</div>
+</div>
+<div class="pres-slide" data-idx="5">
+<h2>لوحة التحكم 🔐</h2>
+<div class="pres-features" style="max-width:760px">
+<div class="pres-fcard"><div class="fi">📦</div><div class="ft">إدارة الباقات</div><div class="fd">تعديل الاسعار والمميزات والتفعيل</div></div>
+<div class="pres-fcard"><div class="fi">📋</div><div class="ft">إدارة الحجزات</div><div class="fd">عرض وتأكيد وحذف الحجزات</div></div>
+<div class="pres-fcard"><div class="fi">🚫</div><div class="ft">التواريخ المحظورة</div><div class="fd">حظر ايام معينة من الحجز</div></div>
+<div class="pres-fcard"><div class="fi">⚙️</div><div class="ft">الإعدادات</div><div class="fd">رقم واتساب للتواصل</div></div>
+<div class="pres-fcard"><div class="fi">💾</div><div class="ft">نسخ احتياطي</div><div class="fd">تصدير واستيراد البيانات</div></div>
+<div class="pres-fcard"><div class="fi">🔔</div><div class="ft">اشعارات الحجزات</div><div class="fd">شارة على الحجزات الجديدة</div></div>
+</div>
+</div>
+<div class="pres-slide" data-idx="6">
+<h2>مراحل الحجز 📅</h2>
+<div class="pres-flow">
+<div class="pres-step"><div class="sn">1</div><div class="st">اختار الباقة</div><div class="sd">تصفح الباقات واختار الأنسب ليك</div></div>
+<div class="pres-step"><div class="sn">2</div><div class="st">اختار التاريخ</div><div class="sd">التقويم التفاعلي يوريك الأيام المتاحة</div></div>
+<div class="pres-step"><div class="sn">3</div><div class="st">اختار الوقت</div><div class="sd">Slots متاحة في اليوم المختار</div></div>
+<div class="pres-step"><div class="sn">4</div><div class="st">املأ البيانات</div><div class="sd">الاسم والايميل والتليفون</div></div>
+<div class="pres-step"><div class="sn">5</div><div class="st">تأكيد + واتساب</div><div class="sd">الحجز يروح على واتساب مباشرة</div></div>
+</div>
+</div>
+<div class="pres-slide" data-idx="7">
+<h2>التقنيات المستخدمة 🛠️</h2>
+<div class="pres-tech">
+<span>HTML5</span><span>CSS3</span><span>JavaScript ES6+</span><span>PWA</span><span>Service Worker</span><span>localStorage</span><span>IntersectionObserver</span><span>CSS Animations</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+</div>
+<div class="pres-stats">
+<div class="pres-stat"><div class="num">~80</div><div class="lbl">كيلوبايت فقط</div></div>
+<div class="pres-stat"><div class="num">1</div><div class="lbl">ملف HTML واحد</div></div>
+<div class="pres-stat"><div class="num">0</div><div class="lbl">سيرفر مطلوب</div></div>
+<div class="pres-stat"><div class="num">100%</div><div class="lbl">عربي بالكامل</div></div>
+</div>
+</div>
+<div class="pres-slide" data-idx="8">
+<h2>النشر والاستضافة 🚀</h2>
+<div class="pres-features" style="max-width:760px">
+<div class="pres-fcard" style="border-color:#00e5ff"><div class="fi">📦</div><div class="ft">GitHub Pages</div><div class="fd">مجاني بالكامل - مثالي للبداية</div></div>
+<div class="pres-fcard"><div class="fi">🚂</div><div class="ft">Railway</div><div class="fd">سهل وسريع مع سيرفر خلفي</div></div>
+<div class="pres-fcard"><div class="fi">🎨</div><div class="ft">Render</div><div class="fd">خيار مجاني مع نشر تلقائي</div></div>
+<div class="pres-fcard"><div class="fi">☁️</div><div class="ft">DigitalOcean</div><div class="fd">تحكم كامل مع VPS</div></div>
+</div>
+<p style="margin-top:28px;font-size:15px">النشر على GitHub Pages: ارفع ملفين فقط<br/><span style="color:#00e5ff;font-weight:600">index.html + sw.js</span></p>
+</div>
+<div class="pres-slide" data-idx="9">
+<h1 style="font-size:clamp(24px,5vw,50px)">شكراً لاهتمامك 🤍</h1>
+<p style="margin-top:16px;font-size:18px">احجز سيشك دلوقتي وخلّينا نحكي قصة فرحتك</p>
+<div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+<a href="https://a7med606.github.io/bedoz-photography/" target="_blank" class="btn btn-primary" style="text-decoration:none;font-size:14px">🌐 زيارة الموقع</a>
+<a href="https://instagram.com/bedoz_photography" target="_blank" class="btn btn-outline" style="text-decoration:none;font-size:14px">📸 إنستجرام</a>
+</div>
+<div style="margin-top:40px;color:#3a4a5a;font-size:13px">
+<p>صُنع بـ ❤️ في مصر 🇪🇬</p>
+<p style="margin-top:6px;font-size:11px">Abdelrahman Ali — BeDoz Photography 2026</p>
+</div>
+</div>
+</div>
+<div class="pres-nav">
+<button onclick="presPrev()">→</button>
+<div class="pres-dots" id="pres-dots"></div>
+<button onclick="presNext()">←</button>
+</div>
+<div class="pres-page" id="pres-page">1 / 10</div>
 </div>
 <div class="toast-container" id="toast-container"></div>
 <div class="modal-overlay" id="booking-modal">
@@ -692,7 +882,7 @@ function saveAdminWhatsapp(){var num=document.getElementById('admin-whatsapp-num
 function toggleAdminBlockDate(ds){var idx=state.blockedDates.indexOf(ds);if(idx!==-1){state.blockedDates.splice(idx,1);showToast('تم إلغاء حظر التاريخ: '+formatDateDisplay(ds),'info')}else{state.blockedDates.push(ds);showToast('تم حظر التاريخ: '+formatDateDisplay(ds),'warning')}saveBlockedDates();renderAdminBlockedDates();if(state.selectedDate===ds){state.selectedDate=null;state.selectedTime=null;renderBookingCalendar();document.getElementById('time-slots-wrap').style.display='none';updateBookingSummary()}}
 function calPrev(type){if(type==='booking'){state.bCalMonth--;if(state.bCalMonth<0){state.bCalMonth=11;state.bCalYear--}renderBookingCalendar()}else{state.aCalMonth--;if(state.aCalMonth<0){state.aCalMonth=11;state.aCalYear--}renderAdminBlockedDates()}}
 function calNext(type){if(type==='booking'){state.bCalMonth++;if(state.bCalMonth>11){state.bCalMonth=0;state.bCalYear++}renderBookingCalendar()}else{state.aCalMonth++;if(state.aCalMonth>11){state.aCalMonth=0;state.aCalYear++}renderAdminBlockedDates()}}
-function handleRoute(){var hash=location.hash;if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
+function handleRoute(){var hash=location.hash;if(hash==='#presentation'){goToPresentation();document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none'}else if(hash==='#admin'){document.getElementById('public-site').style.display='none';document.getElementById('chat-widget').style.display='none';document.getElementById('admin-panel').style.display='block';if(state.adminLoggedIn){document.getElementById('admin-login-view').style.display='none';document.getElementById('admin-dashboard-view').style.display='flex';switchAdminTab('packages')}else{document.getElementById('admin-login-view').style.display='flex';document.getElementById('admin-dashboard-view').style.display='none'}}else{document.getElementById('public-site').style.display='block';document.getElementById('chat-widget').style.display='block';document.getElementById('admin-panel').style.display='none';if(hash&&hash!=='#'){var sectionId=hash.replace('#','');var section=document.getElementById(sectionId);if(section)setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'})},100)}}}
 function toggleChat(){state.chatOpen=!state.chatOpen;var widget=document.getElementById('chat-widget');var badge=document.getElementById('chat-badge');if(state.chatOpen){widget.classList.add('open');badge.style.display='none';if(state.chatMessages.length===0)initChat();document.getElementById('chat-input').focus()}else{widget.classList.remove('open')}}
 function initChat(){addChatBotMessage('أهلاً وسهلاً بيكي في BeDoz Photography! 📸<br/>أنا مساعدك האישי، وأنا هنا عشان أساعدك تلاقي الباقة المثالية لفرحتك أو أي حدث مهم عندك 🤍<br/>قولّي إيه اللي محتاجه وأنا هساعدك!',['📦 الباقات','💰 الأسعار','📅 الحجز','📞 التواصل'])}
 function addChatBotMessage(text,quickReplies){var msgDiv=document.getElementById('chat-messages');var html='<div class="chat-msg bot"><div class="chat-avatar">B</div><div><div class="chat-bubble">'+text+'</div>';if(quickReplies&&quickReplies.length){html+='<div class="quick-replies">';quickReplies.forEach(function(qr){html+='<button class="quick-reply-btn" onclick="sendQuickReply(this.getAttribute(\'data-text\'))" data-text="'+escapeHtml(qr)+'">'+qr+'</button>'});html+='</div>'}html+='</div></div>';msgDiv.innerHTML+=html;msgDiv.scrollTop=msgDiv.scrollHeight;state.chatMessages.push({text:text,sender:'bot'})}
@@ -749,6 +939,16 @@ if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(e
 
 
 if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.section,.hero-content').forEach(function(el){el.classList.add('fade-in-up');obs.observe(el)})})}
+
+
+var presCurrent=0;var presTotal=10;
+function goToPresentation(){document.getElementById('presentation-overlay').classList.add('active');presGoTo(0);document.body.style.overflow='hidden'}
+function closePresentation(){document.getElementById('presentation-overlay').classList.remove('active');document.body.style.overflow=''}
+function presGoTo(n){document.querySelectorAll('.pres-slide').forEach(function(s){s.classList.remove('active')});presCurrent=n;document.querySelectorAll('.pres-slide')[presCurrent].classList.add('active');presUpdateDots()}
+function presNext(){if(presCurrent<presTotal-1)presGoTo(presCurrent+1)}
+function presPrev(){if(presCurrent>0)presGoTo(presCurrent-1)}
+function presUpdateDots(){var d=document.getElementById('pres-dots');d.innerHTML='';for(var i=0;i<presTotal;i++){var dot=document.createElement('div');dot.className='pres-dot'+(i===presCurrent?' active':'');dot.onclick=(function(idx){return function(){presGoTo(idx)}})(i);d.appendChild(dot)}document.getElementById('pres-page').textContent=(presCurrent+1)+' / '+presTotal}
+document.addEventListener('keydown',function(e){if(!document.getElementById('presentation-overlay').classList.contains('active'))return;if(e.key==='ArrowLeft'||e.key===' ')presNext();if(e.key==='ArrowRight')presPrev();if(e.key==='Escape')closePresentation()});
 
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}
 </script>
